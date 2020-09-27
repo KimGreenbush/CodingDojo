@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+		<script src="{% static 'js/script.js' %}"></script>
+	</head>
+	<body>
+		<div id="container">
+
+			<h1>Create a User</h1>
+			
+			<form action="/users" method="post">
+				{% csrf_token %}
+				<label>Name: <input type="text" name="name" /></label>
+				<label>Email: <input type="text" name="email" /></label>
+				<label>D.O.B.:<input type="date" name="birthdate" /></label>
+				<textarea name="hobbies" id="">What are your hobbies?</textarea>
+				<button type="submit">Create User</button>
+			</form>
+		</div>
+	</body>
+</html>

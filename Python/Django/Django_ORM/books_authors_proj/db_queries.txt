@@ -1,0 +1,102 @@
+from books_authors_app.models import *
+
+Book.objects.create(title="C Sharp")
+
+Book.objects.create(title="Java")
+
+Book.objects.create(title="Python")
+
+Book.objects.create(title="PHP")
+
+Book.objects.create(title="Ruby")
+
+Author.objects.create(first_name="Jane", last_name="Austen")
+
+Author.objects.create(first_name="Emily", last_name="Dickenson")
+
+Author.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+
+Author.objects.create(first_name="William", last_name="Shakespeare")
+
+Author.objects.create(first_name="Lau", last_name="Tzu")
+
+c= Book.objects.get(id=1)
+
+c.title = "C#"
+
+c.save()
+
+auth = Author.objects.get(id=4)
+
+auth.first_name = "Bill"
+
+auth.save()
+
+first_auth = Author.objects.get(id=1)
+
+book_uno = Book.objects.get(id=1)
+
+book_dos = Book.objects.get(id=2)
+
+first_auth.books.add(book_uno)
+
+first_auth.save()
+
+first_auth.books.add(book_dos)
+
+first_auth.save()
+
+sec_auth = Author.objects.get(id=2)
+
+book_tres = Book.objects.get(id=3)
+
+sec_auth.books.add(book_uno)
+
+sec_auth.books.add(book_dos)
+
+sec_auth.books.add(book_tres)
+
+sec_auth.save()
+
+third_auth = Author.objects.get(id=3)
+
+book_quat = Book.objects.get(id=4)
+
+third_auth.books.add(book_uno)
+
+third_auth.books.add(book_dos)
+
+third_auth.books.add(book_tres)
+
+third_auth.books.add(book_quat)
+
+third_auth.save()
+
+fourth_auth.books.add(book_uno)
+
+fourth_auth.books.add(book_dos)
+
+fourth_auth.books.add(book_tres)
+
+fourth_auth.books.add(book_quat)
+
+fourth_auth.books.add(book_quinc)
+
+fourth_auth.save()
+
+book_tres.authors.all()
+
+book_tres.authors.remove(sec_auth)
+
+book_tres.save()
+
+fifth_auth = Author.objects.get(id=5)
+
+book_dos.authors.add(fifth_auth)
+
+book_dos.save()
+
+third_auth.books.all()
+
+book_quinc.authors.all()
+

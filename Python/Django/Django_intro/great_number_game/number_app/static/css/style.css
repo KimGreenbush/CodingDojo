@@ -1,0 +1,52 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+    align-items: center;
+    color: rgb(0, 204, 255);
+}
+
+h1, h2 {
+	margin: 20px;
+}
+
+form {
+    margin: 15px;
+}
+
+button {
+	margin: 15px;
+}
+
+.result {
+    color: white;
+}
+
+.incorrect {
+    color: white;
+    background-color: red;
+    border: 2px solid black;
+    text-align: center;
+    font-family: cursive;
+    font-size: 40px;
+    padding: 80px 40px;
+}
+
+.correct {
+    color: white;
+    background-color: green;
+    border: 2px solid black;
+    text-align: center;
+    font-family: cursive;
+    font-size: 40px;
+    padding: 30px 21px;
+}
+
+.num{
+    font-size: 15px;
+}

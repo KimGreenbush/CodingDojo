@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% load static%}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+		<title>Document</title>
+	</head>
+	<body>
+		<h4 class="gold">Your gold: <span>{{request.session.gold_total}}</span></h4>
+
+		<div class="location">
+			<h2>Farm</h2>
+			<p>(earns 10-20 gold)</p>
+			<form action="process_money/" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="location" value="farm" />
+				<button type="submit">Find Gold!</button>
+			</form>
+		</div>
+
+		<div class="location">
+			<h2>Cave</h2>
+			<p>(earns 5-10 gold)</p>
+			<form action="process_money/" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="location" value="cave" />
+				<button type="submit">Find Gold!</button>
+			</form>
+		</div>
+
+		<div class="location">
+			<h2>House</h2>
+			<p>(earns 2-5 gold)</p>
+			<form action="process_money/" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="location" value="house" />
+				<button type="submit">Find Gold!</button>
+			</form>
+		</div>
+
+		<div class="location">
+			<h2>Casino</h2>
+			<p>(earns/takes 0-50 gold)</p>
+			<form action="process_money/" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="location" value="casino" />
+				<button type="submit">Find Gold!</button>
+			</form>
+		</div>
+
+		<div>
+			<h4>Activities:</h4>
+			<div class="activities">
+				{% for log in request.session.activity_log %}
+				{{log|safe}}
+				{% endfor %}
+			</div>
+		</div>
+	</body>
+</html>

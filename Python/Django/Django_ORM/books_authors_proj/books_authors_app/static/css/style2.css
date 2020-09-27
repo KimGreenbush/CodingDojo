@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 50px;
+    font-family: "Century Gothic", "Lucida Console", sans-serif;
+    font-size: 14px;
+}
+
+h1{
+    text-shadow: 2px 2px 5px rgb(0, 204, 255);
+}
+
+p, form {
+    margin-top: 15px;
+    text-shadow: 1px 1px 3px rgb(0, 204, 255);
+}
+
+.notes {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+ul li{
+    margin-left: 40px;
+    text-shadow: 2px 2px 3px rgb(0, 204, 255);
+}
+
+select {
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 1px 1px px rgb(0, 204, 255);
+}
+
+button {
+    margin: 5px auto;
+    padding: 2px;
+    background-color: black;
+    color: rgb(0, 204, 255);
+    box-shadow: 2px 2px 5px rgb(0, 204, 255);
+    border-radius: 5px;
+}

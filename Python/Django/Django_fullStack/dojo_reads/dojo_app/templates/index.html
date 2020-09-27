@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+	</head>
+	<body>
+		<div id="container">
+			<h1>Welcome!</h1>
+
+            <form action="/register/" method="post">
+                {% csrf_token %}
+				<fieldset>
+                    <legend>Register</legend>
+                    <label>
+                        Name: <input type="text" name="name">
+                    </label>
+                    <label>
+                        Alias: <input type="text" name="alias">
+                    </label>
+                    <label>
+                        Email: <input type="email" name="email">
+                    </label>
+                    <label>
+                        Password: <input type="password" name="password">
+                    </label>
+                    <label>
+                        Confirm PW: <input type="password" name="confirm-pass">
+                    </label>
+                    <button type="submit">Register</button>
+				</fieldset>
+			</form>
+
+            <form action="/login/" method="post">
+                {% csrf_token %}
+				<fieldset>
+                    <legend>Login</legend>
+                    <label>
+                        Email: <input type="email" name="email">
+                    </label>
+                    <label>
+                        Password: <input type="password" name="password">
+                    </label>
+                    <button type="submit">Login</button>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>

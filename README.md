@@ -1,0 +1,3 @@
+# CodingDojo
+
+Assignments and projects

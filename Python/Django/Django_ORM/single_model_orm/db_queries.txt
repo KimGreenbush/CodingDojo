@@ -1,0 +1,30 @@
+python manage.py shell
+
+from users_app.models import *
+
+User.objects.create(first_name = "Kim", last_name = "G", email_address = "no@nope.com", age = "100")
+
+User.objects.create(first_name = "Leanna", last_name = "G", email_address = "nope@nope.com", age = "1")
+
+User.objects.create(first_name = "Russell", last_name = "G", email_address = "nope@no.com", age = "5")
+
+User.objects.all()
+
+User.objects.last()
+
+User.objects.first()
+
+Russell = User.objects.get(id=3)
+
+Russell.last_name = "Pancakes"
+
+Russell.save()
+
+Mom = User.objects.get(id=2)
+
+Mom.delete()
+
+User.objects.all().order_by("first_name")
+
+User.objects.all().order_by("-first_name")
+

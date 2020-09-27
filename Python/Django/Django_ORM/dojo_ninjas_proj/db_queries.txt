@@ -1,0 +1,47 @@
+python manage.py shell
+
+from dojo_ninjas_app.models import Dojos, Ninjas
+
+Seattle = Dojo.objects.create(name="Best_Dojo", city="Seattle", state="WA")
+
+Bellevue = Dojo.objects.create(name="Second_Best", city="Bellevue", state="WA")
+
+Los_Angeles = Dojo.objects.create(name="Okay_Dojo", city="Los Angeles", state="CA")
+
+Seattle.delete()
+
+Bellevue.delete()
+
+Los_Angeles.delete()
+
+Orange_County = Dojo.objects.create(name="A_Dojo", city="Orange County", state="CA")
+
+San_Jose = Dojo.objects.create(name="B_Dojo", city="San Jose", state="CA")
+
+Silicon_Valley = Dojo.objects.create(name="C_Dojo", city="Silicon Valley", state="CA")
+
+Kim = Ninjas.object.create(dojo=Silicon_Valley, first_name="Kim", last_name="G")
+
+Joshua = Ninjas.object.create(dojo=Silicon_Valley, first_name="Joshua", last_name="M")
+
+Nick = Ninjas.object.create(dojo=Silicon_Valley, first_name="Nick", last_name="J")
+
+Kristen = Ninjas.object.create(dojo=Orange_County, first_name="Kristen", last_name="SM")
+
+Shawn = Ninjas.object.create(dojo=Orange_County, first_name="Shawn", last_name="C")
+
+Josh = Ninjas.object.create(dojo=Orange_County, first_name="Josh", last_name="C")
+
+Steven = Ninjas.object.create(dojo=San_Jose, first_name="Steven", last_name="W")
+
+Gary = Ninjas.object.create(dojo=San_Jose, first_name="Gary", last_name="J")
+
+Kahlil = Ninjas.object.create(dojo=San_Jose, first_name="Kahlil", last_name="B")
+
+Dojo.objects.first().ninjas.all()
+
+Dojo.objects.last().ninjas.all()
+
+Ninja.objects.last().dojo
+
+Boise = Dojo.objects.create(name="some_dojo", city="Boise", state="ID", desc="old dojo")

@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px;
+    font-family: "Century Gothic", "Lucida Console", sans-serif;
+}
+
+table{
+    border: 1px solid black;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 5px;
+    border-left: 1px solid black;;
+    border-right: 1px solid black;
+}
+
+thead:nth-child(odd){
+    background-color: rgb(170, 170, 170);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(196, 198, 199);
+}
+
+td>a {
+    display: inline-block;
+}
+
+p:nth-child(even) {
+border-left: 1px solid black;
+border-right: 1px solid black;
+padding: 0 3px;
+}

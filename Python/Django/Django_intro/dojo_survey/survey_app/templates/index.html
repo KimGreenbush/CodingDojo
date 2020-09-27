@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+		<script src="{% static 'js/script.js' %}"></script>
+	</head>
+	<body>
+		<div id="container">
+			<h1>Student Survey</h1>
+
+			<form action="/result/" method="post">
+				{% csrf_token %}
+				<label><span>Name: </span><input type="text" name="name" /></label>
+				<label><span>Dojo Location: </span>
+				<select name="location" id="locations">
+					<option value="Seattle">Seattle</option>
+					<option value="Bellevue">Bellevue</option>
+					<option value="San Jose">San Jose</option>
+					<option value="Boise">Boise</option>
+					<option value="Chicago">Chicago</option>
+					<option value="Dallas">Dallas</option>
+					<option value="Los Angeles">Los Angeles</option>
+					<option value="Oakland">Oakland</option>
+					<option value="Orange county">Orange County</option>
+					<option value="Silicon Valley">Silicon Valley</option>
+					<option value="Tulsa">Tulsa</option>
+					<option value="Arlington">Arlington</option>
+				</select>
+				</label>
+				<label><span>Favorite Language: </span>
+				<select name="language">
+					<option value="html/css">HTML/CSS</option>
+					<option value="javascript">JavaScript</option>
+					<option value="python">Python</option>
+					<option value="cshart">C#</option>
+					<option value="java">Java</option>
+					<option value="cpp">C++</option>
+					<option value="ruby">Ruby</option>
+				</select>
+				</label>
+				<label><span>Favorite Stack: </span>
+				<select name="stack">
+					<option value="pythonDjango">Python and Django</option>
+					<option value="meanMern">MEAN or MERN</option>
+					<option value="netCore">C# and .NET</option>
+					<option value="javaStack">Java stack</option>
+					<option value="ruby">Ruby on Rails</option>
+				</select>
+				</label>
+				<label for="comments"><span>Comment(s) (optional): </span></label>
+				<textarea name="comment" id="">Comments? Fun facts?</textarea>
+				<button type="submit">Submit survey</button>
+			</form>
+		</div>
+	</body>
+</html>

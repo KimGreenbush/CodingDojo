@@ -1,0 +1,21 @@
+
+
+pip list - shows a list of packages in environment
+
+deactivate - (This will deactivate your virtual environment)
+
+pip3 list - same as pip list since I'm using Windows
+
+source myEnvironments/py3Env/bin/activate - activates venv
+
+pip install Django==2.2.4 - installs a specific version of Django, or other packages
+
+pip freeze - It's like a snapshot of the venv's dependencies
+
+pip freeze > requirements.txt. - file containing the dependencies reqs for that specific venv
+
+pip uninstall Django - uninstalls Django, or other packages
+
+pip show Django - populates information about Django
+
+pip search Flask - searches for Flask, or other package

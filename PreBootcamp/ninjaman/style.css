@@ -1,0 +1,100 @@
+* {
+				margin: 0;
+				padding: 0;
+			}
+			.wall {
+				background-color: blue;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+			}
+			.onigiri {
+				background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background-image: url("onigiri.png");
+				background-size: contain;
+			}
+			.sushi {
+				background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background-image: url("sushi.png");
+				background-size: contain;
+			}
+			.blank {
+				background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+			}
+			#ninjaman {
+				background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background-image: url("ninja_right.gif");
+				background-size: contain;
+				position: absolute;
+				left: 40px;
+				top: 40px;
+			}
+			#score {
+				height: 20px;
+				width: 40px;
+				background-color: black;
+				color: white;
+				border: 3px dotted yellow;
+				position: absolute;
+				top: 50px;
+				left: 550px;
+                        padding: 3px 5px;
+                        text-align: center;
+			}
+                  #bluey {
+                        background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background-image: url("bluey.gif");
+				background-size: contain;
+				position: absolute;
+				left: 480; 
+                        top: 400;
+                  }
+                  #pinky {
+                        background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background-image: url("pinky.gif");
+				background-size: contain;
+				position: absolute;
+				left: 480;
+                        top: 440;
+                  }
+                  #pumpky {
+                        background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background-image: url("pumpky.gif");
+				background-size: contain;
+				position: absolute;
+			      left: 480;
+                        top: 480;
+                  }
+                  #red {
+                        background-color: black;
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background-image: url("red.gif");
+				background-size: contain;
+				position: absolute;
+				left: 480;
+                        top: 520;
+                  }
+                 

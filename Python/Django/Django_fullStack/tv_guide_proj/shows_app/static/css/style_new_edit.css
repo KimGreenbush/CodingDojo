@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding:20px;
+    font-family: "Century Gothic", "Lucida Console", sans-serif;
+}
+
+.top-nav {
+    text-align: right;
+}
+
+#container {
+    margin: 10px 250px;
+    width: 305px;
+    margin: auto;
+}
+
+input, label {
+    display:block;
+    width: 145px;
+}
+
+input {
+    height: 24px;
+}
+
+label {
+    margin-top: 25px;
+}
+
+form div {
+    display: inline-block;
+}
+
+.title-in-form, textarea {
+    display:block;
+    width: 300px;
+}
+
+button {
+    margin: 10px 0 0 125px;
+    padding: 2px;
+}
+
+#container p {
+    margin: 10px 0 0 105px;
+}
