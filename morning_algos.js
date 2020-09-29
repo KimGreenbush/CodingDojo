@@ -1133,16 +1133,16 @@ class SLList {
   isEmpty() {
     return (this.head == null);
   }
-  
-  
+
+
   //h->[1]->[3]->[7]->[]
-  
+
   addToBack(value) {
-    if (isEmpty() == true){ this.head = new SLNode(value);} 
+    if (isEmpty() == true){ this.head = new SLNode(value);}
 
     // // Assign the head of the list to a variable called runner ✅
     let runner = this.head;
-  
+
     // // to move the runner down the line ✅
     runner = runner.next;
 
@@ -1152,7 +1152,7 @@ class SLList {
     }
 
     // // if we want to run through ALL nodes, and be left sitting at null ✅
-    while(runner != null) { 
+    while(runner != null) {
       runner.next = new SLNode(value);
     }
 
@@ -1163,7 +1163,7 @@ class SLList {
   // Write a method that takes an array as a parameter, and converts it into a singly linked list
 
   // EXAMPLE:
-  // seedFromArr([1,2,3,4]) would return 
+  // seedFromArr([1,2,3,4]) would return
   // 1 -> 2 -> 3 -> 4 ->
   seedFromArr(array) {
     for(i = 0; i < array.length; i++){
@@ -1186,14 +1186,73 @@ class SLList {
     console.log(output);
     return;
   }
+  let myList = new SLList();
+
+  myList.head = new SLNode(10); //h->[10]->
+  // myList.head.next = new SLNode(4);
+  // myList.head.next.next = new SLNode(7);
+  myList.addToBack(new SLNode(4));
+  myList.addToBack(new SLNode(7));
+
+  myList.printList();
+
+  //---9/29---
+
+  // Write a method that will add to the FRONT of a singly linked list
+      // The biggest thing to keep in mind here is that adding to the front
+      // of a singly linked list means you are setting a NEW head.
+    //   addToFront(value) {  // // You don't need to check if empty
+    //     let newNode = new SLNode(value);
+    //     let oldHead = this.head;
+    //     if (this.isEmpty() == true){
+    //         this.head = newNode;
+    //     } else {
+    //         newNode.next = oldHead;
+    //         this.head = newNode;
+    //     }
+    //     return this;
+    // }
+      addToFront(value) {
+        let newNode = new SLNode(value);
+        newNode.next = this.head;
+        this.head = newNode;
+        return this;
+    }
+
+      // Write a function that REMOVES the head of a singly linked list
+      removeHead(){
+        if (this.isEmpty()){
+            return this;
+        }
+        this.head = this.head.next;
+        return this;
+      }
+
+      // BONUS:
+      // Write a method that will calculate and return the average of the
+      // singly linked list
+      average(){
+
+        let sum = 0;
+        let counter = 0;
+        let runner = this.head;
+
+        while (runner != null) {
+            sum += runner.value;
+            counter++;
+            runner = runner.next;
+        }
+        return sum / counter;
+    }
 }
 
-let myList = new SLList();
 
-myList.head = new SLNode(10); //h->[10]->
-// myList.head.next = new SLNode(4);
-// myList.head.next.next = new SLNode(7);
-myList.addToBack(new SLNode(4));
-myList.addToBack(new SLNode(7));
+let newSLList = new SLList()
 
-myList.printList();
+newSLList.addToBack(1);
+newSLList.addToBack(2);
+newSLList.addToBack(3);
+newSLList.addToBack(4);
+newSLList.seedFromArr([5,6,7])
+newSLList.addToFront(99);
+newSLList.printList();
