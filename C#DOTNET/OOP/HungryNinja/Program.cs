@@ -7,11 +7,10 @@ namespace HungryNinja
     {
         public string Name;
         public int Calories;
-        // Foods can be Spicy and/or Sweet
         public bool IsSpicy;
         public bool IsSweet;
-        // add a constructor that takes in all four parameters: Name, Calories, IsSpicy, IsSweet
-        public Food(string name, int calories, bool spicy, bool sweet){
+        public Food(string name, int calories, bool spicy, bool sweet)
+        {
             Name = name;
             Calories = calories;
             IsSpicy = spicy;
@@ -23,15 +22,14 @@ namespace HungryNinja
     {
         public List<Food> Menu;
 
-        //constructor
         public Buffet()
         {
             Menu = new List<Food>()
         {
-            new Food("Cheesecake", 10000, false, true),
+            new Food("Cheesecake", 800, false, true),
             new Food("Spaghetti", 500, true, false),
             new Food("Bread", 200, false, true),
-            new Food("Ramen", 400, true, false),
+            new Food("Ramen", 300, true, false),
             new Food("Sushi", 50, true, true),
             new Food("Onigiri", 30, true, true),
             new Food("Unagidon", 700, false, true)
@@ -51,43 +49,40 @@ namespace HungryNinja
         private int calorieIntake;
         public List<Food> FoodHistory;
 
-        // add a constructor
-        public FoodLog()
+        public Ninja()
         {
             calorieIntake = 0;
             FoodHistory = new List<Food>();
         }
 
-        // add a public "getter" property called "IsFull"
         public bool IsFull
         {
-            get {return (calorieIntake > 1200)}
+            get { return (calorieIntake > 1200); }
         }
 
-        // build out the Eat method
         public void Eat(Food item)
         {
-            if (IsFull == false)
+            if (!IsFull)
             {
-                Food snack = Food Buffet.Serve();
-                FoodHistory.Add(snack);
-                Console.WriteLine(snack.Name + ": spicy? " + snack.IsSpicy + " sweet? " + snack.isSweet);
-            }
-            else
-            {
-                Console.WriteLine("Ninja in full and can't eat anymore.")
+                calorieIntake += item.Calories;
+                FoodHistory.Add(item);
+                Console.WriteLine(item.Name + ", spicy:" + item.IsSpicy + ", sweet: " + item.IsSweet);
             }
         }
     }
-
 
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Buffet();
-            Ninja();
+            Buffet buffet = new Buffet();
+            Ninja ninja = new Ninja();
+            while (!ninja.IsFull)
+            {
+                ninja.Eat(buffet.Serve());
+            }
+            Console.WriteLine("Mr. Ninja is full and cannot eat anymore.");
         }
     }
 }
