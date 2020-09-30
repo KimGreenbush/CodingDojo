@@ -1244,6 +1244,40 @@ class SLList {
         }
         return sum / counter;
     }
+
+    // Write a method that returns a boolean based on whether or not the linked
+    // list contains a node with given value
+    contains(value) {
+        let runner = this.head;
+        if (runner.value === value) {
+            return true;
+        }
+        while (runner.next != null) {
+            // progress the runner to the next node
+            runner = runner.next;
+            // check for the value
+            if (runner.value === value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Write a method that will remove the last node from the linked list
+    // HINT: You'll need to find out when you're at the SECOND TO LAST node
+    removeFromBack() {
+        let runner = this.head;
+        if (this.length() < 2) {
+            // remove node
+            this.head = null;
+            return;
+        }
+        while (runner.next.next != null) {
+            runner = runner.next;
+        }
+        // remove next node
+        runner.next = null;
+    }
 }
 
 
