@@ -6,17 +6,21 @@ namespace Portfolio1.Controllers
 
         [HttpGet]
         [Route("")]
-
-        [HttpGet]
-        [Route("user/{name}/{location}/{age}")]
-        public string UserInfo(string name, string location, int age)
-        {
-            return $"{name}, aged {age}, is from {location}";
-        }
-
         public string Index()
         {
-            return "Hello World from HelloController!";
+            return "This is my Index.";
+        }
+
+        [HttpGet("Projects")]
+        public string Projects()
+        {
+            return "These are my projects.";
+        }
+
+        [HttpGet("contact")]
+        public string Contact()
+        {
+            return "This is my Contact.";
         }
     }
 }

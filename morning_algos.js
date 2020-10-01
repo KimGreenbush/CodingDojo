@@ -407,7 +407,6 @@
 // const str1 = "This is a test"
 // const expected1 = "test a is This"
 
-
 // function reverseWordOrder(wordsStr) {
 //   let tempStr = '';
 //   let temp = wordsStr.split(" ")
@@ -418,7 +417,6 @@
 //   return tempStr;
 // }
 // console.log(reverseWordOrder(str1))
-
 
 // 9 / 9
 
@@ -533,12 +531,11 @@
 //     "]": [],
 //     "{":[],
 //     "}":[]
-  // }
+// }
 
 // }
 
 //---9/11---
-
 
 /*
   Given an array of objects / dictionaries to represent new inventory,
@@ -581,7 +578,6 @@
 //     }
 //     return -1;
 // }
-
 
 // function updateInventory(newInv, currInv) {
 //     for (let i = 0; i < newInv.length; i++) {
@@ -633,22 +629,19 @@
 //   tempStr1 = tempStr1.split("").sort().join("");
 //   tempStr2 = tempStr2.split("").sort().join("");
 
-  // return tempStr1 == tempStr2
-  // tempStr1_dict = {
+// return tempStr1 == tempStr2
+// tempStr1_dict = {
 
-  // }
+// }
 
-  // tempstr2_dict = {
+// tempstr2_dict = {
 
-  // }
+// }
 
+// for (var i = 0; i < str.length; i++ {
+//   if (tempstr1[i] = tempstr1_dict[tempStr1[i]])
 
-
-  // for (var i = 0; i < str.length; i++ {
-  //   if (tempstr1[i] = tempstr1_dict[tempStr1[i]])
-
-  // })
-
+// })
 
 // }
 
@@ -713,18 +706,17 @@
 // function balancePoint(nums) {}
 
 //---9/14---9/*
-  // Array: Binary Search (non recursive)
+// Array: Binary Search (non recursive)
 
-  // Given a sorted array and a value, return whether the array contains that value.
-  // Do not sequentially iterate the array. Instead, ‘divide and conquer’,
-  // taking advantage of the fact that the array is sorted .
+// Given a sorted array and a value, return whether the array contains that value.
+// Do not sequentially iterate the array. Instead, ‘divide and conquer’,
+// taking advantage of the fact that the array is sorted .
 
-  // Bonus (alumni interview):
-  //   first complete it without the bonus, because they ask for additions
-  //   after the initial algo is complete
+// Bonus (alumni interview):
+//   first complete it without the bonus, because they ask for additions
+//   after the initial algo is complete
 
-  //   return how many times the given number occurs
-
+//   return how many times the given number occurs
 
 // const nums1 = [1, 3, 5, 6]
 // const searchNum1 = 4
@@ -768,7 +760,6 @@
 //   return found;
 // }
 
-
 //---9/16---
 
 // Array: Remove Duplicates
@@ -781,7 +772,6 @@
 // Bonus: Do it in-place (no new array)
 // Bonus: Do it in-place in O(n) time and no new array
 // Bonus: Keep it O(n) time even if it is not sorted
-
 
 // const nums1 = [1, 1, 1, 1]
 // const expected1 = [1]
@@ -815,7 +805,6 @@
 //   - what if all items occur the same number of times?
 //     - return empty array
 
-
 // const nums1 = []
 // const expected1 = []
 
@@ -834,15 +823,14 @@
 
 // find all modes if more than one
 // function mode(nums) {
-  // code here
+// code here
 // }
 
 //---9/17---
 
-  // Given an int to represent how much change is needed
-  // calculate the fewest number of coins needed to create that change,
-  // using the standard US denominations
-
+// Given an int to represent how much change is needed
+// calculate the fewest number of coins needed to create that change,
+// using the standard US denominations
 
 // const cents1 = 25
 // const expected1 = { quarter: 1 }
@@ -912,7 +900,6 @@
 // const nums4 = [5, 2, 7, 8, 4, 9, 3]
 // const expected4 = 6
 
-
 // function selectionSort(arr) {
 //   let pos = 0;
 //   let temp = 0;
@@ -929,8 +916,6 @@
 //   }
 //   return arr
 
-
-
 // function missingValue(nums) {
 //   // code here
 //     let sortedArr = selectionSort(nums);
@@ -944,7 +929,6 @@
 // }
 // var answer = missingValue(nums3);
 
-
 //---9/21---
 
 // Recursion
@@ -957,9 +941,7 @@
 
 //******************************************************************************
 
-
 //Recursively sum an arr of ints
-
 
 // const nums1 = [1, 2, 3]
 // const expected1 = 6
@@ -976,14 +958,12 @@
 
 // console.log(sumArr(nums1));
 
-
- //***************************************************************************
+//***************************************************************************
 
 //Recursive Sigma
 
 //Input: integer
 //Output: sum of integers from 1 to Input integer
-
 
 // const num1 = 5
 // const expected1 = 15
@@ -996,297 +976,303 @@
 // const num3 = -1
 // const expected3 = 0
 
-function recursiveSigma(num) {
-  if (num < 1) { return 0 }
-  else {
-    return num += recursiveSigma(num - 1)
-  }
-}
-console.log(recursiveSigma(Math.floor(num2)))
+// function recursiveSigma(num) {
+//   if (num < 1) { return 0 }
+//   else {
+//     return num += recursiveSigma(num - 1)
+//   }
+// }
+// console.log(recursiveSigma(Math.floor(num2)))
 
-//---9/22---
+// //---9/22---
 
-/*
-  Recursive Factorial
+// /*
+//   Recursive Factorial
 
-  Input: integer
-  Output: integer, product of ints from 1 up to given integer
+//   Input: integer
+//   Output: integer, product of ints from 1 up to given integer
 
-  If less than zero, treat as zero.
-  Bonus: If not integer, truncate (remove decimals).
+//   If less than zero, treat as zero.
+//   Bonus: If not integer, truncate (remove decimals).
 
-  Experts tell us 0! is 1.
+//   Experts tell us 0! is 1.
 
-  rFact(3) = 6 (1*2*3)
-  rFact(6.8) = 720 (1*2*3*4*5*6)
-*/
+//   rFact(3) = 6 (1*2*3)
+//   rFact(6.8) = 720 (1*2*3*4*5*6)
+// */
 
-// const num1 = 3
-// const expected1 = 6
-// // Explanation: 1*2*3 = 6
+// // const num1 = 3
+// // const expected1 = 6
+// // // Explanation: 1*2*3 = 6
 
-// const num2 = 6.8
-// const expected2 = 720
-// // Explanation: 1*2*3*4*5*6 = 720
+// // const num2 = 6.8
+// // const expected2 = 720
+// // // Explanation: 1*2*3*4*5*6 = 720
 
-// const num3 = 0
-// const expected3 = 1
+// // const num3 = 0
+// // const expected3 = 1
 
-function factorial(n) {
-    let num = Math.floor(n)
-    if( n < 0) return 0
-    return num < 1 ? 1 : num * factorial(num - 1)
-}
+// function factorial(n) {
+//     let num = Math.floor(n)
+//     if( n < 0) return 0
+//     return num < 1 ? 1 : num * factorial(num - 1)
+// }
 
-// console.log(factorial(6.8))
+// // console.log(factorial(6.8))
 
-/* ******************************************************************************** */
+// /* ******************************************************************************** */
 
-/*
-  Return the fibonacci number at the nth position, recursively.
+// /*
+//   Return the fibonacci number at the nth position, recursively.
 
-  Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+//   Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
-  The next number is found by adding up the two numbers before it,
-  starting with 0 and 1 as the first two numbers of the sequence.
-*/
+//   The next number is found by adding up the two numbers before it,
+//   starting with 0 and 1 as the first two numbers of the sequence.
+// */
 
-// const num1 = 0
-// const expected1 = 0
+// // const num1 = 0
+// // const expected1 = 0
 
-// const num2 = 1
-// const expected2 = 1
+// // const num2 = 1
+// // const expected2 = 1
 
-// const num3 = 2
-// const expected3 = 1
+// // const num3 = 2
+// // const expected3 = 1
 
-// const num4 = 3
-// const expected4 = 2
+// // const num4 = 3
+// // const expected4 = 2
 
-// const num5 = 4
-// const expected5 = 3
+// // const num5 = 4
+// // const expected5 = 3
 
-// const num6 = 8
-// const expected6 = 21
+// // const num6 = 8
+// // const expected6 = 21
 
+// function fibonacci(n, memo={0:0, 1:1}) {
+//   if (n < 2) {return n}
+//   if (memo[n] !== undefined){
+//   return memo[n]= fibonacci(n-1, memo) + fibonacci(n-2, memo)
+//   }
+// }
+// console.log()
 
+// //---9/25---
 
-function fibonacci(n, memo={0:0, 1:1}) {
-  if (n < 2) {return n}
-  if (memo[n] !== undefined){
-  return memo[n]= fibonacci(n-1, memo) + fibonacci(n-2, memo)
-  }
-}
-console.log()
+// /*
+//   Flood Fill
+//   Most graphical “paint” applications, have a ‘paintcan fill’ function that floods part of an image with a certain color. We change the image as if we painted a canvas: a two-dimensional array of integers, where each integer represents a color for that pixel. The canvas Array.length is the Y dimension of our canvas; each spot in the canvas array is a row in our image, with a length equal to our canvas’ X dimension. You are given a canvas (2 dimensional array of integers), starting coordinate (2-element array), and the color to flood (integer value). Build floodFill(canvas2D,startXY,newColor) ! Replace a pixel’s color value only if it is the same color as the origin coordinate and is directly adjacent via X or Y to another pixel you will change. Note: diagonally related pixels are not considered adjacent.
+//   Input:
+//   [
+//     [3, 2, 3, 4, 3],
+//     [2, 3, 3, 4, 0],
+//     [7, 3, 3, 5, 3],
+//     [6, 5, 3, 4, 1],
+//     [1, 2, 3, 3, 3]
+//   ]
+//   and startXY of [2,2], and newColor of 1.
+//   we examine the cells that are directly (not diagonally) adjacent to startXY. If any have a value of 3 (the original value at startXY), we change its value to 1 ( newColor ) and repeat the process with its directly-adjacent neighbor cells. We repeat this until th e entire zone of similarly-colored cells is changed .
+//   Output:
+//   [
+//     [3, 2, 1, 4, 3],
+//     [2, 1, 1, 4, 0],
+//     [7, 1, 1, 5, 3],
+//     [6, 5, 1, 4, 1],
+//     [1, 2, 1, 1, 1 ]
+// ]
+// */
 
-
-//---9/25---
-
-/*
-  Flood Fill
-  Most graphical “paint” applications, have a ‘paintcan fill’ function that floods part of an image with a certain color. We change the image as if we painted a canvas: a two-dimensional array of integers, where each integer represents a color for that pixel. The canvas Array.length is the Y dimension of our canvas; each spot in the canvas array is a row in our image, with a length equal to our canvas’ X dimension. You are given a canvas (2 dimensional array of integers), starting coordinate (2-element array), and the color to flood (integer value). Build floodFill(canvas2D,startXY,newColor) ! Replace a pixel’s color value only if it is the same color as the origin coordinate and is directly adjacent via X or Y to another pixel you will change. Note: diagonally related pixels are not considered adjacent.
-  Input:
-  [
-    [3, 2, 3, 4, 3],
-    [2, 3, 3, 4, 0],
-    [7, 3, 3, 5, 3],
-    [6, 5, 3, 4, 1],
-    [1, 2, 3, 3, 3]
-  ]
-  and startXY of [2,2], and newColor of 1.
-  we examine the cells that are directly (not diagonally) adjacent to startXY. If any have a value of 3 (the original value at startXY), we change its value to 1 ( newColor ) and repeat the process with its directly-adjacent neighbor cells. We repeat this until th e entire zone of similarly-colored cells is changed .
-  Output:
-  [
-    [3, 2, 1, 4, 3],
-    [2, 1, 1, 4, 0],
-    [7, 1, 1, 5, 3],
-    [6, 5, 1, 4, 1],
-    [1, 2, 1, 1, 1 ]
-]
-*/
-
-// add params if needed for recursion
-function floodFill(canvas2D, startXY, newColor) {}
-
+// // add params if needed for recursion
+// function floodFill(canvas2D, startXY, newColor) {}
 
 //C#DOTNET ---9/28---
 // Class for the node of our singly linked list
 class SLNode {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
+	constructor(value) {
+		this.value = value;
+		this.next = null;
+	}
 }
-// How do we actually create a new node?
-// let mynode = new SLNode(10);
-// console.log(mynode)
 
 // Class for a singly linked list
 class SLList {
-  constructor() {
-    // The only attribute we actually need is the head of the list
-    this.head = null;
-  }
+	constructor() {
+		this.head = null;
+	}
 
-  // This method should return a boolean
-  // True if the list is empty, false if it is not
-  isEmpty() {
-    return (this.head == null);
-  }
+	isEmpty() {
+		return this.head == null;
+	}
 
+	length() {
+		let length = 0;
+		let runner = this.head;
 
-  //h->[1]->[3]->[7]->[]
+		while (runner != null) {
+			length++;
+			runner = runner.next;
+		}
+		return length;
+	}
 
-  addToBack(value) {
-    if (isEmpty() == true){ this.head = new SLNode(value);}
+	addToBack(value) {
+		if (this.isEmpty() == true) {
+			this.head = new SLNode(value);
+		}
 
-    // // Assign the head of the list to a variable called runner ✅
-    let runner = this.head;
+		let runner = this.head;
 
-    // // to move the runner down the line ✅
-    runner = runner.next;
+		// // if we want to reach the LAST node: ✅
+		while (runner.next != null) {
+			runner = runner.next;
+		}
+		// // if we want to run through ALL nodes, and be left sitting at null ✅
+		while (runner != null) {
+			runner.next = new SLNode(value);
+		}
+		return this;
+	}
 
-    // // if we want to reach the LAST node: ✅
-    while(runner.next != null){
-        runner = runner.next;
-    }
+	seedFromArr(array) {
+		for (i = 0; i < array.length; i++) {
+			this.addToBack(array[i]);
+		}
+		return this;
+	}
 
-    // // if we want to run through ALL nodes, and be left sitting at null ✅
-    while(runner != null) {
-      runner.next = new SLNode(value);
-    }
+	printList() {
+		if (this.head == null) {
+			console.log("List is empty.");
+			return;
+		}
+		let output = "";
+		let runner = this.head;
+		while (runner != null) {
+			output += `${runner.value} -> `;
+			runner = runner.next;
+		}
+		console.log(output);
+		return;
+	}
 
-    return this;
-  }
+	//---9/29---
 
-  // BONUS:
-  // Write a method that takes an array as a parameter, and converts it into a singly linked list
+	//   addToFront(value) {  // // You don't need to check if empty
+	//     let newNode = new SLNode(value);
+	//     let oldHead = this.head;
+	//     if (this.isEmpty() == true){
+	//         this.head = newNode;
+	//     } else {
+	//         newNode.next = oldHead;
+	//         this.head = newNode;
+	//     }
+	//     return this;
+	// }
+	addToFront(value) {
+		let newNode = new SLNode(value);
+		newNode.next = this.head;
+		this.head = newNode;
+		return this;
+	}
 
-  // EXAMPLE:
-  // seedFromArr([1,2,3,4]) would return
-  // 1 -> 2 -> 3 -> 4 ->
-  seedFromArr(array) {
-    for(i = 0; i < array.length; i++){
-      this.addToBack(array[i]);
-    }
-    return this;
-  }
+	removeHead() {
+		if (this.isEmpty()) {
+			return this;
+		}
+		this.head = this.head.next;
+		return this;
+	}
 
-  printList() {
-    if (this.head == null) {
-      console.log("List is empty.");
-      return;
-    }
-    let output = '';
-    let runner = this.head;
-    while (runner != null) {
-      output += `${runner.value} -> `;
-      runner = runner.next;
-    }
-    console.log(output);
-    return;
-  }
-  let myList = new SLList();
+	average() {
+		let sum = 0;
+		let counter = 0;
+		let runner = this.head;
 
-  myList.head = new SLNode(10); //h->[10]->
-  // myList.head.next = new SLNode(4);
-  // myList.head.next.next = new SLNode(7);
-  myList.addToBack(new SLNode(4));
-  myList.addToBack(new SLNode(7));
+		while (runner != null) {
+			sum += runner.value;
+			counter++;
+			runner = runner.next;
+		}
+		return sum / counter;
+	}
 
-  myList.printList();
+	contains(value) {
+		let runner = this.head;
+		if (runner.value === value) {
+			return true;
+		}
+		while (runner.next != null) {
+			runner = runner.next;
+			if (runner.value === value) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-  //---9/29---
+	removeFromBack() {
+		let runner = this.head;
+		if (this.length() < 2) {
+			// remove node
+			this.head = null;
+			return;
+		}
+		while (runner.next.next != null) {
+			runner = runner.next;
+		}
+		// remove next node
+		runner.next = null;
+	}
 
-  // Write a method that will add to the FRONT of a singly linked list
-      // The biggest thing to keep in mind here is that adding to the front
-      // of a singly linked list means you are setting a NEW head.
-    //   addToFront(value) {  // // You don't need to check if empty
-    //     let newNode = new SLNode(value);
-    //     let oldHead = this.head;
-    //     if (this.isEmpty() == true){
-    //         this.head = newNode;
-    //     } else {
-    //         newNode.next = oldHead;
-    //         this.head = newNode;
-    //     }
-    //     return this;
-    // }
-      addToFront(value) {
-        let newNode = new SLNode(value);
-        newNode.next = this.head;
-        this.head = newNode;
-        return this;
-    }
+	secondToLast() {
+		let runner = this.head;
+		if (this.length() < 2) {
+			this.head = null;
+			return;
+		}
+		while (runner.next.next != null) {
+			runner = runner.next;
+		}
+		return runner.value;
+	}
 
-      // Write a function that REMOVES the head of a singly linked list
-      removeHead(){
-        if (this.isEmpty()){
-            return this;
-        }
-        this.head = this.head.next;
-        return this;
-      }
-
-      // BONUS:
-      // Write a method that will calculate and return the average of the
-      // singly linked list
-      average(){
-
-        let sum = 0;
-        let counter = 0;
-        let runner = this.head;
-
-        while (runner != null) {
-            sum += runner.value;
-            counter++;
-            runner = runner.next;
-        }
-        return sum / counter;
-    }
-
-    // Write a method that returns a boolean based on whether or not the linked
-    // list contains a node with given value
-    contains(value) {
-        let runner = this.head;
-        if (runner.value === value) {
-            return true;
-        }
-        while (runner.next != null) {
-            // progress the runner to the next node
-            runner = runner.next;
-            // check for the value
-            if (runner.value === value) {
+	removeVal(value) {
+		let runner = this.head;
+		if (this.head.value == value) {
+			this.removeHead();
+			return true;
+		}
+		// if (this.contains(value) && runner.next != null) {
+		// 	while (runner.next.value != value) {
+		// 		runner = runner.next;
+		// 	}
+		// 	runner.next = runner.next.next;
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+		while(runner.next != null){
+            if(runner.next.value === value){
+                runner.next = runner.next.next;
                 return true;
             }
-        }
-        return false;
-    }
-
-    // Write a method that will remove the last node from the linked list
-    // HINT: You'll need to find out when you're at the SECOND TO LAST node
-    removeFromBack() {
-        let runner = this.head;
-        if (this.length() < 2) {
-            // remove node
-            this.head = null;
-            return;
-        }
-        while (runner.next.next != null) {
             runner = runner.next;
         }
-        // remove next node
-        runner.next = null;
-    }
+        return false;
+	}
 }
 
-
-let newSLList = new SLList()
+let newSLList = new SLList();
 
 newSLList.addToBack(1);
 newSLList.addToBack(2);
 newSLList.addToBack(3);
 newSLList.addToBack(4);
+newSLList.addToBack(4);
+newSLList.addToBack(4);
 newSLList.seedFromArr([5,6,7])
 newSLList.addToFront(99);
+newSLList.printList();
+newSLList.secondToLast();
+newSLList.removeVal(6);
 newSLList.printList();

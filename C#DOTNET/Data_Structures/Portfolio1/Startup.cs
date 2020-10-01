@@ -27,17 +27,17 @@ namespace Portfolio1
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
 
             app.UseMvc();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
+            // app.UseRouting();
+            // app.UseEndpoints(endpoints =>
+            // {
+            //     endpoints.MapGet("/", async context =>
+            //     {
+            //         await context.Response.WriteAsync("Hello World!");
+            //     });
+            // });
         }
     }
 }
