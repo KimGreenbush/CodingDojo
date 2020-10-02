@@ -1272,17 +1272,24 @@ class SLList {
 	// of the linked list
 	moveMinToFront() {
 		let runner = this.head;
-		let min = this.head.value;
-		console.log("min " + min);
-		while (runner != null) {
-			if (runner.value < min) {
-				min = runner.value;
+		let min = this.head;
+		let minPrev = null;
+		// console.log("min " + min);
+		while (runner.next != null) {
+			if (runner.next.value < min.value) {
+				min = runner.next;
+				minPrev = runner;
 			}
 			runner = runner.next;
 		}
-		console.log("end min: " + min);
-		this.removeVal(min);
-		this.addToFront(min);
+		if (minPrev ==null){
+			return this;
+		}
+		minPrev = min.next;
+		// console.log("end min: " + min);
+		// this.removeVal(min);
+		// this.addToFront(min);
+
 	}
 }
 
