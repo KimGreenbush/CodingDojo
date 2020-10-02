@@ -1242,23 +1242,47 @@ class SLList {
 			this.removeHead();
 			return true;
 		}
-		// if (this.contains(value) && runner.next != null) {
-		// 	while (runner.next.value != value) {
-		// 		runner = runner.next;
-		// 	}
-		// 	runner.next = runner.next.next;
-		// 	return true;
-		// } else {
-		// 	return false;
-		// }
-		while(runner.next != null){
-            if(runner.next.value === value){
-                runner.next = runner.next.next;
-                return true;
-            }
-            runner = runner.next;
-        }
-        return false;
+		while (runner.next != null) {
+			if (runner.next.value === value) {
+				runner.next = runner.next.next;
+				return true;
+			}
+			runner = runner.next;
+		}
+		return false;
+	}
+
+	// Write a method that takes another singly linked list as a parameter, and concatenates it to the end
+	// of ths one
+
+	// EXAMPLE:
+	// if this list is 5 -> 3 -> 1 ->
+	// and we call concat(list2) where list2 is 7 -> 2 -> 8 ->
+	// then this list should become 5 -> 3 -> 1 -> 7 -> 2 -> 8 ->
+	concat(list) {
+		let runner = this.head;
+		while (runner.next != null) {
+			runner = runner.next;
+		}
+		runner.next = list.head;
+		list.head = null;
+	}
+
+	// Write a method that takes the node with the smallest value and moves it to the front
+	// of the linked list
+	moveMinToFront() {
+		let runner = this.head;
+		let min = this.head.value;
+		console.log("min " + min);
+		while (runner != null) {
+			if (runner.value < min) {
+				min = runner.value;
+			}
+			runner = runner.next;
+		}
+		console.log("end min: " + min);
+		this.removeVal(min);
+		this.addToFront(min);
 	}
 }
 
