@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Portfolio1
+namespace RazorFun
 {
     public class Startup
     {
@@ -30,14 +30,6 @@ namespace Portfolio1
             app.UseRouting();
 
             app.UseMvc();
-
-        //         public Startup(IWebHostEnvironment env) {
-        //     // run this in the debugger, and inspect the "env" object! You can use this object to tell you
-        //     // the root path of your application, for the purposes of reading from local files, and for
-        //     // checking environment variables - such as if you are running in Development or Production
-        //     // Console.WriteLine(env.ContentRootPath);
-        //     // Console.WriteLine(env.IsDevelopment());
-        // }
 
             // app.UseEndpoints(endpoints =>
             // {

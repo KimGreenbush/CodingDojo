@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .c {
+            color : red;
+        }
+    </style>
+</head>
+<body>
+
+    @{
+        List<string> foods = new List<string>()
+            {
+                "Cheesecake",
+                "Banana",
+                "Yogurt",
+                "Eel",
+                "Mashed potatoes",
+                "Curry"
+            };
+    }
+
+    <h1>Here are some delicious foods!</h1>
+
+        @foreach (var food in foods)
+        {
+            if (food[0] == 'C')
+            {
+                <p class="c">@food</p>
+            }
+            else
+            {
+            <p>@food</p>
+            }
+        }
+
+</body>
+</html>
