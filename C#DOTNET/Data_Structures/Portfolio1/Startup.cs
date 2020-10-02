@@ -29,6 +29,8 @@ namespace Portfolio1
 
             app.UseRouting();
 
+            app.UseStaticFiles();
+
             app.UseMvc();
 
         //         public Startup(IWebHostEnvironment env) {

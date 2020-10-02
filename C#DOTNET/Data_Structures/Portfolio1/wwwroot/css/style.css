@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic", "Lucida Console", sans-serif;
+    color: rgb(0, 205, 255);
+    text-shadow: 0px 0px 0px black;
+    text-align: center;
+    font-size: 14px;
+}
+
+nav {
+    margin: 10px;
+}
+
+h1 {
+    text-shadow: 0px 0px 3px black;
+    background-color: rgb(0, 205, 255);
+    color: white;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+/* style for Home(Index) */
+.cols {
+    margin-top: 20px;
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.col {
+    display: inline-block;
+    width : 35%;
+    border: 1px solid rgb(0, 205, 255);
+}
+
+.cols>p>img {
+    width: 200px;
+
+}
+
+/* style for Projects */
+#container {
+    padding: 0 25%;
+}
+
+.projects {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects>div {
+    display: flex;
+    flex-direction: row;
+}
+
+.projects>div>div>p {
+    padding: 5px;
+    text-align: left;
+}
+
+.projects>div>img {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+/* style for Contact */
+form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+form>div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+form>div {
+    text-align-last: justify;
+    justify-content: flex-start;
+}
+
+form>div>div:first-child {
+    margin-top: 20px;
+}
+
+label {
+    text-align: left;
+}
+
+textarea {
+    height: 40px;
+}
+
+button {
+    display: block;
+    border-radius: 3px;
+    text-shadow: 0px 0px 3px black;
+    border: 1px solid rgb(3, 141, 175);
+    padding: 5px;
+    background-color: rgb(0, 205, 255);
+    color: white;
+    font-weight: bold;
+    margin: 20px 0 20px auto;
+}

@@ -12,7 +12,7 @@ namespace Portfolio1.Controllers
             return View("Index");
         }
 
-        [HttpGet("Projects")]
+        [HttpGet("projects")]
         public ViewResult Projects()
         {
             return View("Projects");

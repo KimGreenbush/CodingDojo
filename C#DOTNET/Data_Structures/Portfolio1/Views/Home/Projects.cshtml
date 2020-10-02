@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
 
-    <h1>Projects</h1>
+        <link rel="stylesheet" href="/css/style.css"/>
 
-</body>
+    </head>
+    <body>
+                @{
+                    List<string> projects = new List<string> {"Hungary Ninja", "Deck of Cards", "Wizard, Ninja, Samurai"};
+                }
+
+
+        <nav>
+            <p><a href="/">Home</a> | Projects | <a href="contact">Contact</a></p>
+        </nav>
+
+        <h1>Here are some projects of mine!</h1>
+
+        <div id="container">
+        <div class="projects">
+            @foreach (var project in projects)
+            {
+                <div>
+                    <img src="/img/IMG_20200515_194949_040.jpg" alt="my cat">
+                    <div>
+                        <p>@project</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eligendi accusantium voluptas repellendus porro amet omnis quasi id, molestiae aperiam, fuga voluptate, facilis et quis quisquam praesentium delectus assumenda non?</p>
+                </div>
+                </div>
+            }
+        </div>
+
+        <p><a href="www.github.com/KimGreenbush">Here's a link to my GitHub account!</a></p>
+
+        </div>
+    </body>
 </html>

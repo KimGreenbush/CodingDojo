@@ -3,8 +3,35 @@
     <head>
         <meta charset='utf-8'>
         <title>Hello!</title>
+
+        <link rel="stylesheet" href="/css/style.css"/>
+
     </head>
     <body>
-        <h1>Contact</h1>
+
+        <nav>
+            <p><a href="/">Home</a> | <a href="projects">Projects</a> | Contact</p>
+        </nav>
+
+        <h1>Contact Me</h1>
+
+        <form action="/" method="">
+            <div>
+                <div>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
+                </div>
+            </div>
+            <div>
+                <label for="message">Message: </label>
+                <textarea name="message" id="message" ></textarea>
+                <button type="submit">Send</button>
+            </div>
+        </form>
+
     </body>
 </html>
