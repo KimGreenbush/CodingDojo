@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    margin: 30px;
+}
+
+div {
+    width: 100px;
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+div>p {
+    text-align: left;
+}
