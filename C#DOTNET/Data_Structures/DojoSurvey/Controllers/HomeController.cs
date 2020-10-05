@@ -1,5 +1,5 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using DojoSurvey.Models;
 
 namespace DojoSurvey.Controllers
@@ -13,9 +13,16 @@ namespace DojoSurvey.Controllers
         }
 
         [HttpPost("result")]
-        public IActionResult Result(Form fromForm)
+        public IActionResult Result(Survey fromForm)
         {
-            return View("Result", fromForm);
+            if (ModelState.IsValid)
+            {
+                return View("Result", fromForm);
+            }
+            else
+            {
+                return View("Index", fromForm);
+            }
         }
     }
 }

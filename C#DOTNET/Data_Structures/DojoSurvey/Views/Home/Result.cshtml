@@ -1,5 +1,5 @@
 @using DojoSurvey.Models
-@model Form
+@model Survey
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,13 +13,14 @@
 </head>
 <body>
 
-    <div>
+    <div class="form_results">
     <h1>Submitted Info</h1>
-        <p>Name: <span>@Model.Name</span></p>
-        <p>Dojo Location: <span>@Model.Location</span></p>
-        <p>Favorite Language: <span>@Model.Language</span></p>
-        <p>Comment: <span>@Model.Comment</span></p>
-
+    <div class="results">
+            <p>Name: </p><p>@Model.Name</p>
+            <p>Dojo Location: </p><p>@Model.Location</p>
+            <p>Favorite Language: </p><p>@Model.Language</p>
+            <p>Comment: </p><p>@Model.Comment</p>
+        </div>
         <a href="/"><button>Go Back</button></a>
     </div>
 

@@ -1,3 +1,6 @@
+@using DojoSurvey.Models
+@model Survey
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +13,29 @@
 </head>
 <body>
 
-    <form action="result" method="post">
-        <label>Your Name: <input type="text" name="Name"></label>
-
-        <label>Dojo Location: <select name="Location">
+    <form asp-action="result" asp-controller="Home" method="post">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+        <span asp-validation-for="Location"></span>
+        <label asp-for="Location"></label>
+        <select asp-for="Location">
             <option value="SanJose">San Jose</option>
             <option value="Seattle">Seattle</option>
             <option value="LosAngeles">Los Angeles</option>
-            <option value="Boise">Boise</option></select></label>
-
-        <label>Favorite Language: <select name="Language" id="lang">
+            <option value="Boise">Boise</option>
+        </select>
+        <span asp-validation-for="Language"></span>
+        <label asp-for="Language"></label>
+        <select asp-for="Language" id="lang">
             <option value="C#">C#</option>
             <option value="Python">Python</option>
             <option value="Java">Java</option>
             <option value="JavaScript">JavaScript</option>
-        </select></label>
-
-        <label>Comment (optional): <textarea name="Comment" id="comment"></textarea></label>
-
+        </select>
+        <span asp-validation-for="Comment"></span>
+        <label asp-for="Comment"></label>
+        <textarea asp-for="Comment" id="comment"></textarea>
         <button type="submit">Submit</button>
     </form>
 

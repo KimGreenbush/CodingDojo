@@ -17,8 +17,7 @@ namespace FormSubmission.Controllers
         {
             if (ModelState.IsValid)
             {
-                User person = new User();
-                return RedirectToAction("NewUser", person);
+                                return RedirectToAction("NewUser", fromForm);
             }
             else
             {
