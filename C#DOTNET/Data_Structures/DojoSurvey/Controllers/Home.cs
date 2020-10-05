@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using DojoSurvey.Models;
 
 namespace DojoSurvey.Controllers
 {
@@ -12,11 +13,9 @@ namespace DojoSurvey.Controllers
         }
 
         [HttpPost("result")]
-        public IActionResult Result(string name, string location, string language, string comment)
+        public IActionResult Result(Form fromForm)
         {
-            List<string> result = new List<string>() {name, location, language, comment};
-            ViewBag.Result = result;
-            return View("Result");
+            return View("Result", fromForm);
         }
     }
 }

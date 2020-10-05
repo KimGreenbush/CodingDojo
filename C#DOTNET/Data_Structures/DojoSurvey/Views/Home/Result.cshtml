@@ -1,3 +1,6 @@
+@using DojoSurvey.Models
+@model Form
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +13,15 @@
 </head>
 <body>
 
+    <div>
     <h1>Submitted Info</h1>
+        <p>Name: <span>@Model.Name</span></p>
+        <p>Dojo Location: <span>@Model.Location</span></p>
+        <p>Favorite Language: <span>@Model.Language</span></p>
+        <p>Comment: <span>@Model.Comment</span></p>
 
-    <p>Name: @ViewBag.Result[0]</p>
-    <p>Dojo Location: @ViewBag.Result[1]</p>
-    <p>Favorite Language: @ViewBag.Result[2]</p>
-    <p>Comment: @ViewBag.Result[3]</p>
-
-    <a href="/"><button>Go Back</button></a>
+        <a href="/"><button>Go Back</button></a>
+    </div>
 
 </body>
 </html>

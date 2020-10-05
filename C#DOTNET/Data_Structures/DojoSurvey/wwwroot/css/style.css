@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+form, div {
+    border: 1px solid black;
+    margin: 100px 300px;
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label, p {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input, select, textarea {
+    width: 140px;
+    margin-right: 0px;
+    padding: 3px;
+    border: 1px solid black;
+}
+
+select {
+    width: 147px;
+}
+
+button, a {
+    margin: 0 0 10px auto;
+}
+
+h1 {
+    text-decoration: underline;
+}
