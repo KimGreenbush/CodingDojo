@@ -50,7 +50,6 @@ class SLList {
         return this.head === null;
     }
 
-
     addToBack(value){
         // For that edge case we talked about, let's see if the list is empty!
         if(this.isEmpty()){
@@ -357,42 +356,102 @@ class ArrayStack {
 
 
 class SLLStack {
-    constructor(){
+    constructor() {
         this.items = new SLList();
     }
 
     // Adds a new item and returns the size of the SLL
-    push(value){
+    push(value) {
         this.items.addToFront(value);
         return this.items.length();
     }
 
     // returns the removed item
-    pop(){
+    pop() {
         return this.items.removeHead();
     }
 
     // returns true or false
-    isEmpty(){
+    isEmpty() {
         return this.items.isEmpty();
     }
 
     // returns the number of items in the stack
-    size(){
+    size() {
         return this.items.length();
     }
 
     // return the top item without removing it
-    peek(){
+    peek() {
         return this.items.head.value;
     }
 }
 
-myList = new SLLStack();
-myList.push(4);
-myList.push(5);
-myList.push(3);
-myList.push(1);
+    // A queue is a first in first out data structure.
+// Design a class to represent a queue using an array to store the items.
+// After that, design a class to represent a queue using a singly linked list
+// to store the items
 
+class ArrayQueue {
+    constructor(){
+        this.items = [];
+    }
 
-Console.log(myList);
+    // adds an item and returns the new size
+    enqueue(value){
+        this.items.push(value);
+        return this.items.length;
+    }
+
+    // removes an item and returns it
+    dequeue(){
+        return this.items.shift();
+    }
+
+    // returns a boolean based on whether or not the queue is empty
+    isEmpty(){
+        return (this.items == 0);
+    }
+
+    // returns the number of elements in the queue
+    size(){
+        return this.items.length;
+    }
+
+    // returns the first item without removing it
+    front(){
+        return this.items[0];
+    }
+}
+
+class SLLQueue{
+    constructor(){
+        this.items = new SLList();
+    }
+
+    // adds an item and returns the new size
+    enqueue(value){
+        this.items.addToBack(value);
+        return this.items.length();
+    }
+
+    // removes an item and returns it
+    dequeue(){
+        return this.items.removeHead();
+    }
+
+    // returns a boolean based on whether or not the queue is empty
+    isEmpty(){
+        return this.items.isEmpty();
+    }
+
+    // returns the number of elements in the queue
+    size(){
+        return this.items.length();
+    }
+
+    // returns the first item without removing it
+    front(){
+        return this.items.head.value;
+    }
+}

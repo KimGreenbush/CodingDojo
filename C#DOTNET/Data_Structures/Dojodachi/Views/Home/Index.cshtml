@@ -1,0 +1,52 @@
+@using Dojodachi.Models
+@model Dachi
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div id="container">
+    <ul>
+        <li>Fullness: @Model.Fullness</li>
+        <li>Happiness: @Model.Happiness</li>
+        <li>Meals: @Model.Meals</li>
+        <li>Energy: @Model.Energy</li>
+    </ul>
+
+    <div>
+        <img src="/img/eevee_sprite.png" alt="eevee_dojodachi">
+        @if (@Model.Fullness  >= 100 && @Model.Happiness  >= 100 && @Model.Energy >= 100)
+        {
+            <p>Congratulations! You won!</p>
+        }
+        else if (@Model.Fullness  < 1|| @Model.Happiness  < 1)
+        {
+            <p>You lost! Play again?</p>
+        }
+        else
+        {
+            @TempData["message"];
+        }
+    </div>
+        @if (@Model.Fullness  >= 100 && @Model.Happiness  >= 100 && @Model.Energy >= 100 || @Model.Fullness  < 1|| @Model.Happiness  < 1)
+        {
+            <a href="restart"><button>Play Again</button></a>
+        }
+        else
+        {
+            <a href="feed"><button>Feed</button></a>
+            <a href="play"><button>Play</button></a>
+            <a href="work"><button>Work</button></a>
+            <a href="sleep"><button>Sleep</button></a>
+        }
+
+</div>
+</body>
+</html>
