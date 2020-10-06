@@ -6,6 +6,35 @@
 }
 
 #container {
-    width: 500px;
+    width: 400px;
     margin: 40px auto;
+}
+
+.dojodachi{
+    border: 2px solid black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+li{
+    list-style: none;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5px;
 }

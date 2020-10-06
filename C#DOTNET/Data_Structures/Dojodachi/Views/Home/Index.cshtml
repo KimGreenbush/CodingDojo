@@ -20,7 +20,7 @@
         <li>Energy: @Model.Energy</li>
     </ul>
 
-    <div>
+    <div class="dojodachi">
         <img src="/img/eevee_sprite.png" alt="eevee_dojodachi">
         @if (@Model.Fullness  >= 100 && @Model.Happiness  >= 100 && @Model.Energy >= 100)
         {
@@ -35,6 +35,7 @@
             @TempData["message"];
         }
     </div>
+    <div class="btns">
         @if (@Model.Fullness  >= 100 && @Model.Happiness  >= 100 && @Model.Energy >= 100 || @Model.Fullness  < 1|| @Model.Happiness  < 1)
         {
             <a href="restart"><button>Play Again</button></a>
@@ -46,6 +47,7 @@
             <a href="work"><button>Work</button></a>
             <a href="sleep"><button>Sleep</button></a>
         }
+        </div>
 
 </div>
 </body>
