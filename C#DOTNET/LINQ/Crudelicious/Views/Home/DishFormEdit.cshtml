@@ -1,0 +1,59 @@
+@model Dish
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style_form.css">
+</head>
+<body>
+
+    <div id="container">
+
+    <a href="/">Home</a>
+
+    <h1>Edit @Model.Name</h1>
+
+    <form asp-action="UpdateDish" asp-controller="Home" method="post">
+        <div class="form-col">
+            <span asp-validation-for="Chef"></span>
+            <label asp-for="Chef"></label>
+            <input asp-for="Chef" value="@Model.Chef">
+            <span asp-validation-for="Name"></span>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" value="@Model.Name">
+            <span asp-validation-for="Calories"></span>
+            <label asp-for="Calories"></label>
+            <input asp-for="Calories" value="@Model.Calories">
+        </div>
+        <div class="form-col">
+            <span asp-validation-for="Tastiness"></span>
+            <label asp-for="Tastiness"></label>
+            <select asp-for="Tastiness">
+                @for (int i = 1; i <=5; i++)
+                {
+                    if (i != @Model.Tastiness)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                    else
+                    {
+                        <option value="@i" selected="selected">@i</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-col">
+            <span asp-validation-for="Description"></span>
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description">@Model.Description</textarea>
+            <button>Edit Dish</button>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

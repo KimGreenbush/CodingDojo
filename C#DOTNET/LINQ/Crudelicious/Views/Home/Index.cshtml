@@ -1,3 +1,6 @@
+@using Crudelicious.Models
+@model List<Dish>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,21 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+    <h1>Welcome to CRUDelicious</h1>
+
+    <div class="dishes">
+        <div>
+            <p>Check out some recent dishes!</p>
+            <a href="new">Add a Dish</a>
+        </div>
+            <ul>
+            @foreach (var dish in @Model)
+            {
+                <li><a href="@dish.DishId">@dish.Name</a> by @dish.Chef</li>
+            }
+            </ul>
+    </div>
 
 </body>
 </html>

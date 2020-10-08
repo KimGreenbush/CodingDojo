@@ -393,65 +393,109 @@ class SLLStack {
 // to store the items
 
 class ArrayQueue {
-    constructor(){
-        this.items = [];
-    }
+	constructor() {
+		this.items = [];
+	}
 
-    // adds an item and returns the new size
-    enqueue(value){
-        this.items.push(value);
-        return this.items.length;
-    }
+	// adds an item and returns the new size
+	enqueue(value) {
+		this.items.push(value);
+		return this.items.length;
+	}
 
-    // removes an item and returns it
-    dequeue(){
-        return this.items.shift();
-    }
+	// removes an item and returns it
+	dequeue() {
+		return this.items.shift();
+	}
 
-    // returns a boolean based on whether or not the queue is empty
-    isEmpty(){
-        return (this.items == 0);
-    }
+	// returns a boolean based on whether or not the queue is empty
+	isEmpty() {
+		return this.items == 0;
+	}
 
-    // returns the number of elements in the queue
-    size(){
-        return this.items.length;
-    }
+	// returns the number of elements in the queue
+	size() {
+		return this.items.length;
+	}
 
-    // returns the first item without removing it
-    front(){
-        return this.items[0];
-    }
+	// returns the first item without removing it
+	front() {
+		return this.items[0];
+	}
+
+	// - create a method on the array Queue class that returns whether or not the sum of the first half of the queue is equal to the sum of the second half
+	// - DO NOT manually index the queue items, only use the provided queue methods, use no additional arrays or objects for storage
+	// - restore the queue to it's original state before returning
+	sumOfHalvesEqual() {}
 }
 
-class SLLQueue{
-    constructor(){
-        this.items = new SLList();
-    }
+class SLLQueue {
+	constructor() {
+		this.items = new SLList();
+	}
 
-    // adds an item and returns the new size
-    enqueue(value){
-        this.items.addToBack(value);
-        return this.items.length();
-    }
+	// adds an item and returns the new size
+	enqueue(value) {
+		this.items.addToBack(value);
+		return this.items.length();
+	}
 
-    // removes an item and returns it
-    dequeue(){
-        return this.items.removeHead();
-    }
+	// removes an item and returns it
+	dequeue() {
+		return this.items.removeHead();
+	}
 
-    // returns a boolean based on whether or not the queue is empty
-    isEmpty(){
-        return this.items.isEmpty();
-    }
+	// returns a boolean based on whether or not the queue is empty
+	isEmpty() {
+		return this.items.isEmpty();
+	}
 
-    // returns the number of elements in the queue
-    size(){
-        return this.items.length();
-    }
+	// returns the number of elements in the queue
+	size() {
+		return this.items.length();
+	}
 
-    // returns the first item without removing it
-    front(){
-        return this.items.head.value;
-    }
+	// returns the first item without removing it
+	front() {
+		return this.items.head.value;
+	}
+
+	queueIsPalindrome() {
+		let count = this.size();
+		let stack = new SLLStack();
+
+		for (let i = 0; i < count; i++) {
+			// the biggest thing to recognize is that emptying a queue into a stack will make it so the stack empties out in reverse order
+			let dequeued = this.dequeue().value;
+			stack.push(dequeued);
+			this.enqueue(dequeued);
+		}
+
+		let palindrome = true; // boolean starting at true
+
+		for (let i = 0; i < count; i++) {
+			if (stack.peek().value != this.front().value) {
+				// if the start of the queue isn't the same as the back (aka top of the stack)
+				palindrome = false; // no palindrome
+			}
+			let dequeued = this.dequeue().value; // dequeue, and add it back to the queue and top of the stack
+			this.enqueue(dequeued);
+			stack.pop();
+		}
+
+		return palindrome;
+	}
+}
+// - create enqueue and dequeue methods on a new queue class that uses ONLY 2 stacks to store your items
+// - use only the provided stack methods from the two stacks (do not directly index)
+// - i.e., how do you make a FIFO (First in First Out) data structure using two LIFO (Last in First Out) Stack data structures?
+class StackQueue {
+	constructor() {
+		this.items = new SLLStack();
+		this.secondStack = new SLLStack();
+	}
+
+	enqueue(value) {}
+
+	dequeue() {}
 }
