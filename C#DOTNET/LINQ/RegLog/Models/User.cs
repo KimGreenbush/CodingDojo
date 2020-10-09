@@ -11,10 +11,12 @@ namespace RegLog.Models
 
         [Required]
         [MinLength(2)]
+        [Display(Name="First Name")]
         public string FirstName { get; set; }
 
         [Required]
         [MinLength(2)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
@@ -29,6 +31,7 @@ namespace RegLog.Models
         [NotMapped]
         [Compare("Password")]
         [DataType(DataType.Password)]
+        [Display(Name = "Confirm Password")]
         public string Confirm { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
