@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SportsORM.Models;
 
 
@@ -31,21 +32,6 @@ namespace SportsORM.Controllers
         [HttpGet("level_1")]
         public IActionResult Level1()
         {
-            // List<League> WomensTeams = _context.Leagues.Where(w => w.Name.Contains("Womens")).ToList();
-            // List<League> HockeyTeams = _context.Leagues.Where(h => h.Sport.Contains("Hockey")).ToList();
-            // List<League> NotFootball = _context.Leagues.Where(nf => nf.Sport != "football").ToList();
-            // List<League> Conference = _context.Leagues.Where(c => c.Name.Contains("Conference")).ToList();
-            // List<League> AtlanticLeague = _context.Leagues.Where(a => a.Name.Contains("Atlantic")).ToList();
-            // List<Team> Dallas = _context.Teams.Where(d => d.Location.Contains("Dallas")).ToList();
-            // List<Team> Raptors = _context.Teams.Where(r => r.TeamName.Contains("Raptors")).ToList();
-            // List<Team> InACity = _context.Teams.Where(i => i.Location.Contains("City")).ToList();
-            // List<Team> tTeam = _context.Teams.Where(t => t.TeamName.Contains("T")).ToList();
-            // List<Team> Alpha = _context.Teams.OrderBy(a => a.TeamName).ToList();
-            // List<Team> Zeta = _context.Teams.OrderByDescending(a => a.TeamName).ToList();
-            // List<Player> Coopers = _context.Players.Where(cp => cp.LastName.Contains("Cooper")).ToList();
-            // List<Player> Josh = _context.Players.Where(j => j.FirstName.Contains("Joshua")).ToList();
-            // List<Player> CooperNotJosh = Coopers.Except(Josh).ToList();
-            // List<Player> WyAlex = _context.Players.Where(a => a.FirstName.Contains("Alexander")).Concat(_context.Players.Where(w => w.FirstName.Contains("Wyatt"))).ToList();
             ViewBag.WomensTeams = _context.Leagues.Where(w => w.Name.Contains("Womens")).ToList();
             ViewBag.HockeyTeams = _context.Leagues.Where(h => h.Sport.Contains("Hockey")).ToList();
             ViewBag.NotFootball = _context.Leagues.Where(nf => nf.Sport != "football").ToList();
@@ -69,6 +55,14 @@ namespace SportsORM.Controllers
         [HttpGet("level_2")]
         public IActionResult Level2()
         {
+            ViewBag.ASCTeams = _context.Teams.Where(b => b.CurrLeague.Name == "Atlantic Soccer Conference");
+            ViewBag.CurrBoston = _context.Players.Where(b => b.CurrentTeam.TeamName == "Penguins" && b.CurrentTeam.Location == "Boston");
+            ViewBag.CurrrentICBC = _context.Players.Where(c => c.CurrentTeam.CurrLeague.Name == "International Collegiate Baseball Conference");
+            ViewBag.CurrrentACAF = _context.Players.Where(c => c.CurrentTeam.CurrLeague.Name == "American Conference of Amateur Football" && c.LastName == "Lopez");
+            ViewBag.AllFoots = _context.Players.Where(a => a.CurrentTeam.CurrLeague.Sport == "Football");
+            ViewBag.Sophia = _context.Teams.Where(a => a.CurrentPlayers.Any(b => b.FirstName == "Sophia" || b.LastName == "Sophia"));
+            ViewBag.SophiaLeague = _context.Leagues.Where(a => a.Teams.Any(c => c.CurrentPlayers.Any(b => b.FirstName == "Sophia" || b.LastName == "Sophia")));
+            ViewBag.SomeFlores = _context.Players.Where(a => a.LastName == "Flores" && a.CurrentTeam.TeamName != "Washington Roughriders");
             return View();
         }
 
