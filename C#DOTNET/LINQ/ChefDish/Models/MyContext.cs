@@ -4,6 +4,7 @@ namespace ChefDish.Models
     public class MyContext : DbContext
     {
         public MyContext(DbContextOptions options) : base(options) { }
-        public DbSet<ChefDish> ChefDishes { get;set;}
+        public DbSet<Chef> Chefs { get;set;}
+        public DbSet<Dish> Dishes { get;set;}
     }
 }

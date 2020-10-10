@@ -14,12 +14,12 @@ namespace ChefDish
         public string FirstName { get; set; }
 
         [Required]
-        public string LasstName { get; set; }
+        public string LastName { get; set; }
 
         [Required]
         public DateTime Birthday { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
-        public List<Dish> Dishes {get;set;}
+        public List<Dish> Dishes {get;set;} // nav prop, many
     }
 }

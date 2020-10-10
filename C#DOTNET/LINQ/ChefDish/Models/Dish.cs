@@ -13,7 +13,7 @@ namespace ChefDish
         public string Name { get; set; }
         [Required]
         [Display(Name = "Chef's Name")]
-        public string Chef { get; set; }
+        public Chef Chef { get; set; } // nav prop, one Foreign Key
         [Required]
         [Range(1, 5)]
         public int Tastiness { get; set; }
