@@ -82,6 +82,10 @@ namespace RegLog.Controllers
         [HttpGet("success")]
         public ViewResult Success()
         {
+            if (HttpContext.Session.GetInt32("User") == null)
+            {
+                return View("Index");
+            }
             return View("Success");
         }
 
