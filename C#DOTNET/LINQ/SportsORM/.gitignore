@@ -53,6 +53,7 @@ x64/
 *.log
 *.svclog
 *.scc
+*Migrations/
 
 # Visual C++ cache files
 ipch/
