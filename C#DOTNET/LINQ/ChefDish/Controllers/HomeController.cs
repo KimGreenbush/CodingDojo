@@ -19,10 +19,63 @@ namespace ChefDish.Controllers
         {
             _context = context;
         }
+
+        //Render routes
         [HttpGet("")]
         public ViewResult Index()
         {
-            return View("Index");
+            List<Chef> Chefs = _context.Chefs.ToList();
+            return View("Index", Chefs);
+        }
+
+        [HttpGet("new")]
+        public ViewResult ChefNew()
+        {
+            return View("Form_Chef");
+        }
+
+        [HttpGet("dishes")]
+        public ViewResult Dish()
+        {
+            List<Dish> Dishes = _context.Dishes.ToList();
+            return View("Index_Dish");
+        }
+
+        [HttpGet("dishes/new")]
+        public ViewResult DishNew()
+        {
+            return View("Form_Dish");
+        }
+
+        //Process routes
+        [HttpPost("new")]
+        public IActionResult CreateChef(Chef fromForm)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(fromForm);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Form_Chef");
+            }
+        }
+
+        [HttpPost("dishes/new")]
+        public IActionResult CreateDish(Dish fromForm)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(fromForm);
+                _context.SaveChanges();
+                return RedirectToAction("dishes");
+            }
+            else
+            {
+                return View("Form_Dish");
+            }
         }
     }
 }

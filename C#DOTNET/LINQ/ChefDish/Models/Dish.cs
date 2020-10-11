@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ChefDish.Models;
-namespace ChefDish
+using System.ComponentModel.DataAnnotations.Schema;
+namespace ChefDish.Models
 {
     public class Dish
     {

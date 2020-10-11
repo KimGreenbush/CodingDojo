@@ -1,3 +1,6 @@
+@using ChefDish.Models
+@model List<Chef>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <div id="container">
 
     <nav>
         <h1>Chefs | <a href="dishes">Dishes</a></h1>
@@ -25,11 +29,17 @@
             </tr>
         </thead>
         <tbody>
-            <th></th>
-            <th></th>
-            <th></th>
+                @foreach (Chef chef in @Model)
+                {
+            <tr>
+                <td>@chef.FirstName @chef.LastName</td>
+                <td>@chef.Age</td>
+                <td>@chef.Dishes</td>
+            </tr>
+                }
         </tbody>
     </table>
 
+    </div>
 </body>
 </html>

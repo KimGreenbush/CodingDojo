@@ -1,0 +1,39 @@
+@using ChefDish.Models
+@model Chef
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style_form.css">
+</head>
+<body>
+    <div id="container">
+
+    <nav>
+        <h1>Add a Chef!</h1>
+        <a href="/">Home</a>
+    </nav>
+
+    <form asp-action="new" asp-controller="Home" method="post">
+        <div>
+            <span asp-validation-for="FirstName"></span>
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName">
+            <span asp-validation-for="LastName"></span>
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName">
+        </div>
+        <div>
+            <span asp-validation-for="Birthday"></span>
+            <label asp-for="Birthday"></label>
+            <input asp-for="Birthday">
+            <button type="submit">Add a Chef</button>
+        </div>
+    </form>
+
+    </div>
+</body>
+</html>
