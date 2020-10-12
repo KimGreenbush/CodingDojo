@@ -69,8 +69,12 @@ namespace SportsORM.Controllers
         [HttpGet("level_3")]
         public IActionResult Level3()
         {
+            ViewBag.SamuelEvans = _context.Teams.Include(a => a.AllPlayers).ThenInclude(b => b.PlayerOnTeam).Where(d => d.AllPlayers.Any(c => c.PlayerOnTeam.FirstName == "Samuel" && c.PlayerOnTeam.LastName == "Evans"));
+            ViewBag.ManitobaTC = _context.Players.Include(a => a.AllTeams).ThenInclude(b => b.TeamOfPlayer).Where(c => c.AllTeams.Any(d => d.TeamOfPlayer.TeamName.Contains("Manitoba")));
+            ViewBag.PastWichita = _context.Players.Include(a => a.AllTeams).ThenInclude(b => b.TeamOfPlayer).Where(c => c.AllTeams.Any(d => d.TeamOfPlayer.TeamName.Contains("Vikings") && d.TeamOfPlayer.Location == "Wichita") && c.CurrentTeam.TeamName != "Vikings" && c.CurrentTeam.Location != "Wichita");
+            ViewBag.JacobGray = _context.Teams.Include(a => a.AllPlayers).ThenInclude(b => b.PlayerOnTeam).Where(c => c.AllPlayers.Any(d => d.PlayerOnTeam.FirstName == "Jacob" && d.PlayerOnTeam.LastName == "Gray") && c.TeamName != "Colts" && c.Location != "Oregon");
+
             return View();
         }
-
     }
 }
