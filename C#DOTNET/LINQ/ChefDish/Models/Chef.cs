@@ -18,18 +18,26 @@ namespace ChefDish.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
-        public  DateTime Birthday { get; set; }
+        [AgeValidation]
+        public  DateTime? Birthday { get; set; }
 
-        public  string Age
+        public  int Age
         {
             get
             {
-                DateTime today = DateTime.Now;
-                string age = (today.Subtract(Birthday)).ToString();
-                return age;
+                int year = 0;
+                if (Birthday == null)
+                {
+                    Birthday = DateTime.Now;
+                }
+                else
+                {
+                year = ((DateTime)Birthday).Year;
+                }
+                int thisYear = DateTime.Now.Year;
+                return thisYear - year;
             }
         }
         public DateTime CreatedAt { get; set; } = DateTime.Now;

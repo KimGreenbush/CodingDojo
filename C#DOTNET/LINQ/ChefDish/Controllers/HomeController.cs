@@ -53,9 +53,15 @@ namespace ChefDish.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(fromForm);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                if (fromForm.Birthday == null){
+                    return View("Form_Chef");
+                }
+                else
+                {
+                    _context.Add(fromForm);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             else
             {
