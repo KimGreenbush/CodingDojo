@@ -37,13 +37,14 @@ namespace ChefDish.Controllers
         [HttpGet("dishes")]
         public ViewResult Dish()
         {
-            List<Dish> Dishes = _context.Dishes.ToList();
-            return View("Index_Dish");
+            List<Dish> Dishes = _context.Dishes.Include(a => a.Chef).ToList();
+            return View("Index_Dish", Dishes);
         }
 
         [HttpGet("dishes/new")]
         public ViewResult DishNew()
         {
+            ViewBag.Chefs = _context.Chefs.ToList();
             return View("Form_Dish");
         }
 
@@ -76,10 +77,11 @@ namespace ChefDish.Controllers
             {
                 _context.Add(fromForm);
                 _context.SaveChanges();
-                return RedirectToAction("dishes");
+                return RedirectToAction("Dish");
             }
             else
             {
+                ViewBag.Chefs = _context.Chefs.ToList();
                 return View("Form_Dish");
             }
         }

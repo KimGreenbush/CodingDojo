@@ -28,9 +28,14 @@
             <input asp-for="Calories">
         </div>
         <div>
-            <span asp-validation-for="Chef"></span>
-            <label asp-for="Chef"></label>
-            <input asp-for="Chef">
+            <span asp-validation-for="ChefId"></span>
+            <label asp-for="ChefId"></label>
+            <select asp-for="ChefId">
+            @foreach (Chef chef in ViewBag.Chefs)
+            {
+                <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+            }
+            </select>
         </div>
         <div>
             <span asp-validation-for="Tastiness"></span>

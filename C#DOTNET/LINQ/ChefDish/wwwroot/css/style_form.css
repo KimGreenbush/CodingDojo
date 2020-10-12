@@ -21,7 +21,7 @@ a {
 form {
     display: flex;
     flex-wrap: wrap;
-    max-width: 600px;
+    max-width: 720px;
 }
 
 form>div {
@@ -45,6 +45,7 @@ select {
 textarea {
     height: 50px;
     width: 205px;
+    padding: 1px;
     margin-bottom: 15px;
 }
 
