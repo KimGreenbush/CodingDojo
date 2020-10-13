@@ -73,12 +73,12 @@ class BSTree {
 
 	// Write a method that determines whether or not the binary search tree contains a node with a given value
 	contains(value) {
-		if (this.isEmpty()) {
-			return null;
-		}
-		if (this.root.value == value) {
-			return true
-		}
+		// if (this.isEmpty()) { //not necessary
+		// 	return null;
+		// }
+		// if (this.root.value == value) {
+		// 	return true
+		// }
 		let runner = this.root
 		while (runner != null) {
 			if (runner.value == value) {
