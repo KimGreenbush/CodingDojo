@@ -42,7 +42,7 @@ namespace RegLog.Controllers
                     newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
                     _context.Add(newUser);
                     _context.SaveChanges();
-                    HttpContext.Session.SetInt32("User", newUser.UserId);
+                    HttpContext.Session.SetInt32("UserId", newUser.UserId);
                     return RedirectToAction("Success");
                 }
             }
