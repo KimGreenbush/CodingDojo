@@ -73,6 +73,9 @@ namespace SportsORM.Controllers
             ViewBag.ManitobaTC = _context.Players.Include(a => a.AllTeams).ThenInclude(b => b.TeamOfPlayer).Where(c => c.AllTeams.Any(d => d.TeamOfPlayer.TeamName.Contains("Manitoba")));
             ViewBag.PastWichita = _context.Players.Include(a => a.AllTeams).ThenInclude(b => b.TeamOfPlayer).Where(c => c.AllTeams.Any(d => d.TeamOfPlayer.TeamName.Contains("Vikings") && d.TeamOfPlayer.Location == "Wichita") && c.CurrentTeam.TeamName != "Vikings" && c.CurrentTeam.Location != "Wichita");
             ViewBag.JacobGray = _context.Teams.Include(a => a.AllPlayers).ThenInclude(b => b.PlayerOnTeam).Where(c => c.AllPlayers.Any(d => d.PlayerOnTeam.FirstName == "Jacob" && d.PlayerOnTeam.LastName == "Gray") && c.TeamName != "Colts" && c.Location != "Oregon");
+            ViewBag.AFABJoshua = _context.Players.Include(a => a.AllTeams).ThenInclude(b => b.TeamOfPlayer).ThenInclude(c => c.CurrLeague).Where(a => a.AllTeams.Any(b => b.TeamOfPlayer.CurrLeague.Name.Contains("Atlantic Federation of Amateur")) && a.FirstName == "Joshua");
+            ViewBag.TwelveOrMore = _context.Teams.Include(a => a.AllPlayers).Where(b => b.AllPlayers.Count() >= 12);
+            ViewBag.AllPlayersSorted = _context.Players.Include(a => a.AllTeams).ThenInclude(c => c.TeamOfPlayer).OrderBy(b => b.AllTeams.Count());
 
             return View();
         }
