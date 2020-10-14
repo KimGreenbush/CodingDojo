@@ -79,19 +79,19 @@ class BSTree {
 		// if (this.root.value == value) {
 		// 	return true
 		// }
-		let runner = this.root
+		let runner = this.root;
 		while (runner != null) {
 			if (runner.value == value) {
-				return true
+				return true;
 			}
 			if (runner.value > value) {
-				runner = runner.left
+				runner = runner.left;
 			}
 			if (runner.value < value) {
-				runner = runner.right
+				runner = runner.right;
 			}
 		}
-		return false
+		return false;
 	}
 
 	// Write a method that determines and returns the range of the binary search tree.
@@ -102,6 +102,35 @@ class BSTree {
 		}
 		return this.max() - this.min();
 	}
+
+	// Write a method that adds a new node to the binary search tree in the appropriate place
+	// REMEMBER!! greater than or equal to the right, less than to the left!
+	insert(value) {
+		let lagger = this.root
+		let runner = this.root;
+		let choice;
+		while (runner != null) {
+			lagger = runner
+			if (runner.value > value) {
+				runner = runner.left
+				choice = 0
+			}
+			else if (runner.value < value || runner.value == value) {
+				runner = runner.right
+				choice = 1
+			}
+		}
+		if (choice == 0) {
+			lagger.left = new BSNode(value)
+		} else {
+			lagger.right = new BSNode(value)
+		}
+		return this
+	}
+
+	// BONUS:
+	// The same as above, but recursively!
+	insertRecursive(value /* and any other parameters you may need */) {}
 }
 
 let myTree = new BSTree();
