@@ -1,3 +1,6 @@
+@using WeddingPlanner.Models
+@model IndexValidations
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,26 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+    <div id="container">
+
+        <div>
+            <h2>Register</h2>
+            <form asp-action="register" asp-controller="Home" method="post">
+            <partial name="UserPartial" model="Model.User" />
+            <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <div>
+            <h2>Login</h2>
+            <form asp-action="login" asp-controller="Home" method="post">
+            <partial name="LoginPartial" model="Model.LoginUser" />
+            <button type="submit">Log In</button>
+            </form>
+        </div>
+
+    </div>
 
 </body>
 </html>

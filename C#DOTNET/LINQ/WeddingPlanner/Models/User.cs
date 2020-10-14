@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -37,8 +38,6 @@ namespace WeddingPlanner.Models
 
     public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
-    public List<Wedding> PlannedWedding { get; set;} //1 to many
-
-    public List<UsersWeddings> RSVPWeddings {get;set;} //many to many
+    public List<UserWedding> RSVPWeddings {get;set;} //many to many
     }
 }
