@@ -6,29 +6,18 @@
 
 #container {
     padding: 50px;
+}
+
+header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin-bottom: 30px;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 10px;
+p {
+    margin: 10px 0;
 }
 
-form {
-    display: flex;
-    flex-flow: row wrap;
-    width: 350px;
-}
-
-label, input {
-    height: 20px;
-    width: 48%;
-    padding: 2px;
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 3px;
-    margin: 0 auto;
+li {
+    list-style-type: none;
 }

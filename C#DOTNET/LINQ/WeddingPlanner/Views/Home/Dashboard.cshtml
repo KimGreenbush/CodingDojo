@@ -9,6 +9,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="/css/style_dashboard.css">
+
 </head>
 <body>
     <div id="container">
@@ -17,6 +18,8 @@
             <h1>Welcome to the Wedding Planner</h1>
             <p><a asp-action="Logout" asp-controller="Home">Logout</a></p>
         </header>
+
+    <div class="table">
 
         <table>
             <thead>
@@ -32,7 +35,7 @@
                 {
                     <tr>
                         <td><a asp-action="Info" asp-controller="Home" asp-route-WedId="@wed.WeddingId">@wed.WedOne & @wed.WedTwo</a></td>
-                        <td>@wed.Date</td>
+                        <td>@wed.Date.ToString("MM/dd/yyy")</td>
                         <td>@wed.RSVPUsers.Count</td>
                         @if (@wed.Planner.UserId == ViewBag.UserId)
                         {
@@ -40,16 +43,13 @@
                         }
                         else
                         {
-                            @foreach (var guest in @wed.RSVPUsers)
+                            if (@wed.RSVPUsers.Any(a => a.Guest.UserId == ViewBag.UserId))
                             {
-                                @if (@guest.Guest.UserId != ViewBag.UserId)
-                                {
-                                    <td><a asp-action="RSVP" asp-controller="Home" asp-route-WedId ="@wed.WeddingId">Un-RSVP</a></td>
-                                }
-                                else
-                                {
-                                    <td><a asp-action="RSVP" asp-controller="Home" asp-route-WedId ="@wed.WeddingId">RSVP</a></td>
-                                }
+                                <td><a asp-action="RSVP" asp-controller="Home" asp-route-WedId ="@wed.WeddingId">Un-RSVP</a></td>
+                            }
+                            else
+                            {
+                                <td><a asp-action="RSVP" asp-controller="Home" asp-route-WedId ="@wed.WeddingId">RSVP</a></td>
                             }
                         }
                     </tr>
@@ -58,6 +58,8 @@
         </table>
 
         <a asp-action="NewForm" asp-controller="Home"><button>New Wedding</button></a>
+
+    </div>
 
     </div>
 </body>

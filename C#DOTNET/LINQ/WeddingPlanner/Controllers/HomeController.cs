@@ -32,7 +32,7 @@ namespace WeddingPlanner.Controllers
             if (UserId != null)
             {
                 ViewBag.UserId = (int)HttpContext.Session.GetInt32("UserId");
-                List<Wedding> Weddings = _context.Weddings.Include(c => c.Planner).Include(a => a.RSVPUsers).ThenInclude(b => b.Guest).ToList();
+                List<Wedding> Weddings = _context.Weddings.Include(a => a.RSVPUsers).ThenInclude(b => b.Guest).Include(d => d.Planner).ToList();
                 return View("Dashboard", Weddings);
             }
             IndexValidations IdxVal = new IndexValidations{};
@@ -62,7 +62,7 @@ namespace WeddingPlanner.Controllers
                 return View("Info", Wedding);
             }
             IndexValidations IdxVal = new IndexValidations{};
-            return View("Index");
+            return View("Index", IdxVal);
         }
 
         //Reg, Login, Logout
@@ -154,12 +154,15 @@ namespace WeddingPlanner.Controllers
         public RedirectToActionResult RSVP(int WedId)
         {
             int UserId = (int)HttpContext.Session.GetInt32("UserId");
-            User ExistingUser = _context.Users.FirstOrDefault(u => u.UserId == UserId);
-            UserWedding RSVPList = _context.UsersWeddings.FirstOrDefault(a => a.UserId == UserId && a.WeddingId == WedId);
+            UserWedding RSVPList = _context.UsersWeddings.Include(b => b.Guest).FirstOrDefault(a => a.UserId == UserId && a.WeddingId == WedId);
             if (RSVPList == null)
             {
-                RSVPList.Guest = ExistingUser;
-                _context.Add(RSVPList);
+                UserWedding NewRSVP = new UserWedding { };
+                User ExistingUser = _context.Users.FirstOrDefault(u => u.UserId == UserId);
+                Wedding ExistingWedding = _context.Weddings.FirstOrDefault(w => w.WeddingId == WedId);
+                NewRSVP.Guest = ExistingUser;
+                NewRSVP.AttendingWedding = ExistingWedding;
+                _context.Add(NewRSVP);
             }
             else
             {
