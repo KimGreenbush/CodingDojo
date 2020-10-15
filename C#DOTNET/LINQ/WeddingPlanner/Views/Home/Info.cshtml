@@ -1,0 +1,38 @@
+@using WeddingPlanner.Models
+@model Wedding
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style_info.css">
+</head>
+<body>
+
+    <div id="container">
+
+        <header>
+            <h1>@Model.WedOne and @Model.WedTwo 's Wedding</h1>
+            <p><a asp-action="Dashboard" asp-controller="Home">Dashboard</a>
+                <a asp-action="Logout" asp-controller="Home">Logout</a></p>
+        </header>
+
+        <div class="wedding">
+            <p>@Model.Date.Date</p>
+            <p>Address: @Model.Address</p>
+            <p>Guests:</p>
+            <ul>
+                @foreach (var guest in @Model.RSVPUsers)
+                {
+                    <li>@guest.Guest.FirstName @guest.Guest.LastName</li>
+                }
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

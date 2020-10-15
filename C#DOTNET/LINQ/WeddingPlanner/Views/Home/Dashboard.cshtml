@@ -1,0 +1,64 @@
+@using WeddingPlanner.Models
+@model List<Wedding>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style_dashboard.css">
+</head>
+<body>
+    <div id="container">
+
+        <header>
+            <h1>Welcome to the Wedding Planner</h1>
+            <p><a asp-action="Logout" asp-controller="Home">Logout</a></p>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Wedding</th>
+                    <th>Date</th>
+                    <th>Guest</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var wed in @Model)
+                {
+                    <tr>
+                        <td><a asp-action="Info" asp-controller="Home" asp-route-WedId="@wed.WeddingId">@wed.WedOne & @wed.WedTwo</a></td>
+                        <td>@wed.Date</td>
+                        <td>@wed.RSVPUsers.Count</td>
+                        @if (@wed.Planner.UserId == ViewBag.UserId)
+                        {
+                        <td><a asp-action="Delete" asp-controller="Home" asp-route-WedId ="@wed.WeddingId">Delete</a></td>
+                        }
+                        else
+                        {
+                            @foreach (var guest in @wed.RSVPUsers)
+                            {
+                                @if (@guest.Guest.UserId != ViewBag.UserId)
+                                {
+                                    <td><a asp-action="RSVP" asp-controller="Home" asp-route-WedId ="@wed.WeddingId">Un-RSVP</a></td>
+                                }
+                                else
+                                {
+                                    <td><a asp-action="RSVP" asp-controller="Home" asp-route-WedId ="@wed.WeddingId">RSVP</a></td>
+                                }
+                            }
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a asp-action="NewForm" asp-controller="Home"><button>New Wedding</button></a>
+
+    </div>
+</body>
+</html>

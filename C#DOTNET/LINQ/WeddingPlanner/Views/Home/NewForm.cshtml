@@ -1,0 +1,29 @@
+@using WeddingPlanner.Models
+@model Wedding
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style_form.css">
+</head>
+<body>
+    <div id="container">
+
+    <header>
+        <h1>Plan Your Wedding</h1>
+        <p><a asp-action="Dashboard" asp-controller="Home">Dashboard</a>
+        <a asp-action="Logout" asp-controller="Home">Logout</a></p>
+    </header>
+
+    <form asp-action="CreateNew" asp-controller="Home">
+        <partial name="WeddingPartial" model="Model" />
+        <button type="submit">Create</button>
+    </form>
+
+</div>
+</body>
+</html>

@@ -10,7 +10,7 @@ namespace WeddingPlanner.Models
         public int UserWeddingId { get; set; }
 
         public int UserId { get; set; }
-        public User Attendee {get;set;}
+        public User Guest {get;set;}
 
         public int WeddingId { get; set; }
         public Wedding AttendingWedding {get;set;}

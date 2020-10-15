@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using WeddingPlanner.Extensions;
 
 namespace WeddingPlanner.Models
 {
@@ -9,11 +10,23 @@ namespace WeddingPlanner.Models
         [Key]
         public int WeddingId { get; set; }
 
+        [Required]
+        [Display(Name="Wedder One")]
         public string WedOne {get;set;}
 
+        [Required]
+        [Display(Name="Wedder Two")]
         public string WedTwo {get;set;}
 
-        public DateTime WedDate {get; set; }
+        [Required]
+        [DateValidation]
+        [Display(Name="Wedding Date")]
+        [DataType(DataType.Date)]
+        public DateTime Date {get; set; }
+
+        [Required]
+        [Display(Name="Wedding Address")]
+        public string Address { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
