@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
@@ -24,6 +25,46 @@ namespace WeddingPlanner.Controllers
             return View("Index", IdxVal);
         }
 
+        [HttpGet("dashboard")]
+        public IActionResult Dashboard()
+        {
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            if (UserId != null)
+            {
+                ViewBag.UserId = (int)HttpContext.Session.GetInt32("UserId");
+                List<Wedding> Weddings = _context.Weddings.Include(c => c.Planner).Include(a => a.RSVPUsers).ThenInclude(b => b.Guest).ToList();
+                return View("Dashboard", Weddings);
+            }
+            IndexValidations IdxVal = new IndexValidations{};
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("new")]
+        public IActionResult NewForm()
+        {
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            if (UserId != null)
+            {
+            Wedding Wedding = new Wedding {};
+            return View("NewForm", Wedding);
+            }
+            IndexValidations IdxVal = new IndexValidations{};
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("info/{WedId}")]
+        public IActionResult Info(int WedId)
+        {
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            if (UserId != null)
+            {
+                Wedding Wedding = _context.Weddings.Include(a => a.RSVPUsers).ThenInclude(b => b.Guest).FirstOrDefault(w => w.WeddingId == WedId);
+                return View("Info", Wedding);
+            }
+            IndexValidations IdxVal = new IndexValidations{};
+            return View("Index");
+        }
+
         //Reg, Login, Logout
         [HttpPost("register")]
         public IActionResult Register(User fromForm)
@@ -43,14 +84,14 @@ namespace WeddingPlanner.Controllers
                     _context.Add(fromForm);
                     _context.SaveChanges();
                     HttpContext.Session.SetInt32("UserId", fromForm.UserId);
-                    return RedirectToAction("Success", "Home");
+                    return RedirectToAction("Dashboard");
                 }
             }
             return View("Index", IdxVal);
         }
 
         [HttpPost("login")]
-        public IActionResult LoginUser(LoginUser fromForm)
+        public IActionResult Login(LoginUser fromForm)
         {
             IndexValidations IdxVal = new IndexValidations{};
             if (ModelState.IsValid)
@@ -69,7 +110,7 @@ namespace WeddingPlanner.Controllers
                     return View("Index", IdxVal);
                 }
                 HttpContext.Session.SetInt32("UserId", ExistingUser.UserId);
-                return RedirectToAction("Success", "Home");
+                return RedirectToAction("Dashboard");
             }
             return View("Index", IdxVal);
         }
@@ -79,6 +120,53 @@ namespace WeddingPlanner.Controllers
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
+        }
+
+        //Processing
+        [HttpPost("new")]
+        public IActionResult CreateNew(Wedding fromForm)
+        {
+            Wedding Wedding = new Wedding {};
+            if (ModelState.IsValid)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UserId");
+                User ExistingUser = _context.Users.FirstOrDefault(u => u.UserId == UserId);
+                fromForm.Planner = ExistingUser;
+                _context.Add(fromForm);
+                _context.SaveChanges();
+                Wedding Wed = _context.Weddings.FirstOrDefault(w => w.WedOne == fromForm.WedOne);
+                int WeddingId = Wed.WeddingId;
+                return RedirectToAction("Info", new {WedId = WeddingId});
+            }
+            return View("NewForm");
+        }
+
+        [HttpGet("delete/{WedId}")]
+        public RedirectToActionResult Delete(int WedId)
+        {
+            Wedding toDelete = _context.Weddings.FirstOrDefault(w => w.WeddingId == WedId);
+            _context.Remove(toDelete);
+            _context.SaveChanges();
+            return RedirectToAction("Dashboard");
+        }
+
+        [HttpGet("rsvp/{WedId}")]
+        public RedirectToActionResult RSVP(int WedId)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("UserId");
+            User ExistingUser = _context.Users.FirstOrDefault(u => u.UserId == UserId);
+            UserWedding RSVPList = _context.UsersWeddings.FirstOrDefault(a => a.UserId == UserId && a.WeddingId == WedId);
+            if (RSVPList == null)
+            {
+                RSVPList.Guest = ExistingUser;
+                _context.Add(RSVPList);
+            }
+            else
+            {
+                _context.Remove(RSVPList);
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Dashboard");
         }
     }
 }
