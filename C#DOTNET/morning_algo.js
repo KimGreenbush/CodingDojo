@@ -487,15 +487,32 @@ class SLLQueue {
 	}
 
 	// Write a method that will reverse a singly linked list in place without creating a new list.
-     reverse(nextNode = this.head, lastNode = this.head) { //double check this one!!
-        // edge case for list is empty
-        // var to hold next node
-        if (nextNode.next != null) {
-            // console.log(nextNode.next);
-            let nextNode = nextNode.next
-            nextNode.next = lastNode
+     reverse(runner = this.head, prev = null){
+        if(runner = null){
+            this.head = prev;
+            return this;
         }
-        this.reverse(nextNode, this) //pass nextNode twice so we can hold the previous position when swapping values, second nextNode becomes a lagger of sorts
+
+        this.reverse(runner.next, runner);
+        runner.next = prev;
+        return this;
+    }
+
+    // Write a method that returns a boolean based on whether or not there is a loop in the singly linked list
+    hasLoop(){
+    if (this.isEmpty() || this.head.next == null) {
+            return false;
+        }
+        let rabbit = this.head.next;
+        let tortoise = this.head;
+        while (rabbit != tortoise){
+            if (rabbit.next == null || tortoise.next == null){
+                return false;
+            }
+            rabbit = rabbit.next.next;
+            tortoise = tortoise.next;
+        }
+        return true;
     }
 }
 // - create enqueue and dequeue methods on a new queue class that uses ONLY 2 stacks to store your items
