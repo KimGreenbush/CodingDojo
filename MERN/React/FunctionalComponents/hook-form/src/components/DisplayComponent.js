@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormData = ({ data }) => { //destructure from param! {data} = props;
+const FormData = ({ data }) => { //destructured from param! {data} = props;
     const {firstname, lastname, email, password, confirmpass} = data;
 
     return (
