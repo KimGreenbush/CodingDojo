@@ -33,7 +33,7 @@ function App() {
 			<Tab tab={tab3[0]} switchTab={clicked} />
 			<Display data={tab1[1]} />
 			<Display data={tab2[1]} />
-			<Display data={tab3[1]} />
+            <Display data={tab3[1]} />
 		</div>
 	);
 }
