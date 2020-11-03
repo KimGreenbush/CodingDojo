@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				$.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=151", function (response) {
+					//get method to call up pokemansss
+
+					for (var i = 0; i < response.results.length; i++) {
+						//loop to get URLs of pokemanss
+						var pokemonList = response.results[i].url;
+						$.get(pokemonList, function (response) {  // a singe pokeman URL
+							var img_tag = "<img src='" + response.sprites.front_shiny + "' alt='pokemon'>";
+							$("#pokemon").append(img_tag);
+						});
+					}
+				});
+			});
+		</script>
+
+		<title>A collection of Pokes</title>
+	</head>
+
+	<body>
+		<div id="pokemon"></div>
+	</body>
+</html>
