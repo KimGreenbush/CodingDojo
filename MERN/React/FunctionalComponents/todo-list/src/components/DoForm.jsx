@@ -1,10 +1,10 @@
 import React from "react";
 
-const DoForm = props => {
+const DoForm = ({handleSubmit, input, setInput}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="todo">Add Todo: </label>
-            <input type="text" name="todo" id="todo"/>
+            <input type="text" name="todo" id="todo" value={input} onChange={e => setInput(e.target.value)}/>
             <button>Add</button>
         </form>
     );
