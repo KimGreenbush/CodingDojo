@@ -1,12 +1,12 @@
 import React from "react"
 
-const DisplayPoke = ({pokemon}) => {
+const DisplayPoke = ({ pokemon }) => {
     return(
-        <ul>
+        <ol>
             {
-                // pokemon.map()
+                pokemon.map((poke, i) => <li key={i}>{poke.name}</li>)
             }
-        </ul>
+        </ol>
     )
 }
 
