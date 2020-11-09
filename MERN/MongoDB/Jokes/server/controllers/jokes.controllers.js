@@ -27,7 +27,7 @@ module.exports.makeNewJoke = (req, res) => {
 				joke: makeNewJoke,
 			})
 		)
-		.catch((err) => res.json({ message: "Something went wrong", error }));
+		.catch((err) => res.json({ message: "Something went wrong", err }));
 };
 
 module.exports.updateAJoke = (req, res) => {
