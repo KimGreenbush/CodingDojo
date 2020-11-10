@@ -1,4 +1,4 @@
-const ProductController = require("./server/controllers/product.controller");
+const ProductController = require("../controllers/product.controller");
 
 module.exports = function (app) {
     app.get("/api", ProductController.index);
