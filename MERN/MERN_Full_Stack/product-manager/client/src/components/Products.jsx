@@ -1,15 +1,12 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 const Products = ({products}) => {
     return (
         <div>
             {console.log(products)}
             {products.map((product, idx) =>
-                <ul key={idx}>
-                    <li>{product.title}</li>
-                    <li>{product.price}</li>
-                    <li>{product.description}</li>
-                </ul>)
+                <p key={idx}><Link to={`/product/${product._id}`}>{product.title}</Link></p>)
             }
         </div>
     )

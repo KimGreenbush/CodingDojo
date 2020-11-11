@@ -27,7 +27,7 @@ const ProductForm = props => {
             </div>
             <div>
                 <label htmlFor="desc">Description: </label>
-                <input type="text" name="description" id="desc" onChange={e => setDescription(e.target.value)}/>
+                <input type="number" name="description" id="desc" onChange={e => setDescription(e.target.value)}/>
             </div>
             <input type="submit" />
         </form>
