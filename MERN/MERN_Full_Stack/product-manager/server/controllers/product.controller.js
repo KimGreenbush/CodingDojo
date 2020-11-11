@@ -16,7 +16,19 @@ module.exports.createProduct = (req, res) => {
 }
 
 module.exports.getProduct = (req, res) => {
-    Product.findOne({_id: req.params.id})
+    Product.findOne({ _id: req.params.id })
         .then(product => res.json(product))
+        .catch(err => res.json(err));
+}
+
+module.exports.updateProduct = (req, res) => {
+    Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+        .then(product => res.json(product))
+        .catch(err => res.json(err));
+}
+
+module.exports.deleteProduct = (req, res) => {
+    Product.findOneAndDelete({ _id: req.params.id })
+        .then(result => res.json(result))
         .catch(err => res.json(err));
 }
