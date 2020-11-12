@@ -1,7 +1,12 @@
 import React from "react"
+import DeleteButton from "../components/DeleteButton"
 import {Link} from "@reach/router"
 
-const Authors = ({ authors }) => {
+const Authors = ({ authors, setAuthors}) => {
+    const removeAuthor = authorId => {
+        setAuthors(authors.filter(author => author._id !== authorId))
+    }
+
     return (
         <table>
             <thead>
@@ -15,7 +20,7 @@ const Authors = ({ authors }) => {
                     <tr key={idx}>
                         <td>{author.name}</td>
                         <td><Link to={`/edit/${author._id}`}><button>Edit</button></Link></td>
-                        <td><button>Delete</button></td>
+                        <td><DeleteButton authorId={author._id} successCallback={() => removeAuthor(author._id)} /></td>
                     </tr>)}
             </tbody>
         </table>
