@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const cors = require("cors")
 
-app.listen(express.json(), express.urlencoded({ extended: true }))
+app.use(express.json(), express.urlencoded({ extended: true }))
 app.use(cors())
 
 require("./server/config/mongoose.config")
