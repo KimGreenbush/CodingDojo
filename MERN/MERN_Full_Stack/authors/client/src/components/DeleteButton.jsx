@@ -3,7 +3,7 @@ import axios from "axios"
 
 const DeleteButton = ({authorId, successCallback}) => {
     const deleteAuthor = e => {
-        axios.delete(`http://localhost:8000/api/author/${authorId}`)
+        axios.delete(`http://localhost:8000/api/authors/${authorId}`)
             .then(res => successCallback())
     }
 

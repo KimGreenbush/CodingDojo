@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import Authors from "./components/Authors"
+import Authors from "../components/Authors"
 import { Link } from "@reach/router"
 import axios from "axios"
 

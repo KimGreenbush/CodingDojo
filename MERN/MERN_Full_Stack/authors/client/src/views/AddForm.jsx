@@ -1,10 +1,13 @@
 import React from "react"
 import Form from "../components/Form"
 
-const AddForm = ({ createAuthor }) => {
+const AddForm = ({ onSubmitProp, errors, setErrors }) => {
 
     return (
-        <Form onSubmitProp={createAuthor}  initialName="" />
+        <>
+            <p>Add a new author: </p>
+            <Form onSubmitProp={onSubmitProp} initialName="" errors={errors} setErrors={setErrors} />
+        </>
     )
 }
 
