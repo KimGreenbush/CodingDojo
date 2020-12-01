@@ -2,7 +2,7 @@
 
 I attended the Full-Stack bootcamp at Coding Dojo from August 2020 to November 2020.
 
-I graduated as a Triple Black Belt, one for each stack I **earned top marks** in.
+I graduated as a Triple Black Belt, one for each stack I **earned top marks** in. :tada:
 
 The *three* full-stacks I learned were:
 - **Python, Django, SQLite**
